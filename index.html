@@ -5530,6 +5530,7 @@ globalThis.LectureAdlMidiFactory=createADLMIDI;
     projectLibraryPieces: [],
     videoFileName: "",
     videoUrl: "",
+    videoUrlOwned: true,
     videoActive: false,
     videoVisible: false,
     videoWaiting: false
@@ -6561,7 +6562,7 @@ globalThis.LectureAdlMidiFactory=createADLMIDI;
     partitionVideo.pause();
     partitionVideo.removeAttribute("src");
     partitionVideo.load();
-    if (p.videoUrl) URL.revokeObjectURL(p.videoUrl);
+    if (p.videoUrl && p.videoUrlOwned !== false) URL.revokeObjectURL(p.videoUrl);
     p.videoFileName = "";
     p.videoUrl = "";
     p.videoActive = false;
@@ -6600,12 +6601,32 @@ globalThis.LectureAdlMidiFactory=createADLMIDI;
     updatePartitionVideoToggleUI();
   }
 
+  function activatePartitionVideoUrl(url, fileName) {
+    deactivatePartitionVideo();
+    if (!url) return;
+    const p = state.partition;
+    p.videoFileName = fileName || "video.mp4";
+    p.videoUrl = String(url);
+    p.videoUrlOwned = false;
+    p.videoActive = true;
+    p.videoVisible = true;
+    p.videoExpanded = false;
+    p.audioSource = "midi";
+    p.soundEnabled = true;
+    partitionVideo.src = p.videoUrl;
+    updatePartitionVideoVisibility();
+    partitionVideo.load();
+    updatePartitionAudioSourceUI();
+    syncPartitionVideo(true);
+  }
+
   function activatePartitionVideo(file) {
     deactivatePartitionVideo();
     if (!file) return;
     const p = state.partition;
     p.videoFileName = file.name;
     p.videoUrl = URL.createObjectURL(file);
+    p.videoUrlOwned = true;
     p.videoActive = true;
     p.videoVisible = true;
     p.videoExpanded = false;
@@ -7819,7 +7840,8 @@ globalThis.LectureAdlMidiFactory=createADLMIDI;
       try {
         const parsed = parseMidi(e.target.result, file.name);
         setLoadedMidi(parsed, file.name);
-        if (videoFile) activatePartitionVideo(videoFile);
+        if (videoFile && videoFile.url) activatePartitionVideoUrl(videoFile.url, videoFile.name);
+        else if (videoFile) activatePartitionVideo(videoFile);
         else deactivatePartitionVideo();
         persistLastMidiFile(e.target.result, file.name)
           .then(() => refreshRecentMidiSelect(file.name));
@@ -8698,12 +8720,9 @@ globalThis.LectureAdlMidiFactory=createADLMIDI;
       const midiResponse = await fetch(midiUrl);
       if (!midiResponse.ok) throw new Error("MIDI introuvable");
       const midiFile = new File([await midiResponse.blob()], projectLibraryFileName(piece.midi, piece.id + ".mid"), { type: "audio/midi" });
-      let videoFile = null;
-      if (piece.video) {
-        const videoResponse = await fetch(new URL(piece.video, projectMediaLibraryBase));
-        if (!videoResponse.ok) throw new Error("Vidéo introuvable");
-        videoFile = new File([await videoResponse.blob()], projectLibraryFileName(piece.video, piece.id + ".mp4"), { type: "video/mp4" });
-      }
+      const videoFile = piece.video
+        ? { url: new URL(piece.video, projectMediaLibraryBase).href, name: projectLibraryFileName(piece.video, piece.id + ".mp4") }
+        : null;
       handleMidiFile(midiFile, videoFile, "library");
     } catch (error) {
       feedbackEl.className = "feedback bad";
