@@ -1,0 +1,593 @@
+﻿{
+    "version":  1,
+    "pieces":  [
+                   {
+                       "id":  "tuto-piano-lettre-elise-de-beethoven-niveau-3",
+                       "title":  "[TUTO PIANO]  Lettre à Elise de Beethoven (niveau 3) ",
+                       "midi":  "pieces/tuto-piano-lettre-elise-de-beethoven-niveau-3/[TUTO PIANO]  Lettre à Elise de Beethoven (niveau 3) .mid",
+                       "video":  "pieces/tuto-piano-lettre-elise-de-beethoven-niveau-3/[TUTO PIANO]  Lettre à Elise de Beethoven (niveau 3) .mp4"
+                   },
+                   {
+                       "id":  "tuto-piano-douce-nuit-chant-de-no-l",
+                       "title":  "[TUTO PIANO] Douce Nuit _chant de Noël",
+                       "midi":  "pieces/tuto-piano-douce-nuit-chant-de-no-l/[TUTO PIANO] Douce Nuit _chant de Noël.mid",
+                       "video":  "pieces/tuto-piano-douce-nuit-chant-de-no-l/[TUTO PIANO] Douce Nuit _chant de Noël.mp4"
+                   },
+                   {
+                       "id":  "tuto-piano-la-panth-re-rose",
+                       "title":  "[TUTO PIANO] La Panthère Rose",
+                       "midi":  "pieces/tuto-piano-la-panth-re-rose/[TUTO PIANO] La Panthère Rose.mid",
+                       "video":  "pieces/tuto-piano-la-panth-re-rose/[TUTO PIANO] La Panthère Rose.mp4"
+                   },
+                   {
+                       "id":  "tuto-piano-l-hymne-la-joie-de-beethoven",
+                       "title":  "[ TUTO PIANO ] l\u0027Hymne à la joie de Beethoven",
+                       "midi":  "pieces/tuto-piano-l-hymne-la-joie-de-beethoven/[ TUTO PIANO ] l\u0027Hymne à la joie de Beethoven.mid",
+                       "video":  "pieces/tuto-piano-l-hymne-la-joie-de-beethoven/[ TUTO PIANO ] l\u0027Hymne à la joie de Beethoven.mp4"
+                   },
+                   {
+                       "id":  "tuto-piano-les-aristochats",
+                       "title":  "[TUTO PIANO ] Les aristochats",
+                       "midi":  "pieces/tuto-piano-les-aristochats/[TUTO PIANO ] Les aristochats.mid",
+                       "video":  "pieces/tuto-piano-les-aristochats/[TUTO PIANO ] Les aristochats.mp4"
+                   },
+                   {
+                       "id":  "tuto-piano-bella-ciao-la-casa-de-papel",
+                       "title":  "[TUTO PIANO] Bella Ciao_ La casa de papel",
+                       "midi":  "pieces/tuto-piano-bella-ciao-la-casa-de-papel/[TUTO PIANO] Bella Ciao_ La casa de papel.mid",
+                       "video":  "pieces/tuto-piano-bella-ciao-la-casa-de-papel/[TUTO PIANO] Bella Ciao_ La casa de papel.mp4"
+                   },
+                   {
+                       "id":  "tuto-piano-douce-nuit-chant-de-no-l-2",
+                       "title":  "[TUTO PIANO] Douce Nuit _chant de Noël",
+                       "midi":  "pieces/tuto-piano-douce-nuit-chant-de-no-l-2/[TUTO PIANO] Douce Nuit _chant de Noël.mid",
+                       "video":  "pieces/tuto-piano-douce-nuit-chant-de-no-l-2/[TUTO PIANO] Douce Nuit _chant de Noël.mp4"
+                   },
+                   {
+                       "id":  "tuto-piano-hey-jude-beatles",
+                       "title":  "[TUTO PIANO] Hey Jude Beatles",
+                       "midi":  "pieces/tuto-piano-hey-jude-beatles/[TUTO PIANO] Hey Jude Beatles.mid",
+                       "video":  "pieces/tuto-piano-hey-jude-beatles/[TUTO PIANO] Hey Jude Beatles.mp4"
+                   },
+                   {
+                       "id":  "tuto-piano-la-panth-re-rose-2",
+                       "title":  "[TUTO PIANO] La Panthère Rose",
+                       "midi":  "pieces/tuto-piano-la-panth-re-rose-2/[TUTO PIANO] La Panthère Rose.mid",
+                       "video":  "pieces/tuto-piano-la-panth-re-rose-2/[TUTO PIANO] La Panthère Rose.mp4"
+                   },
+                   {
+                       "id":  "tuto-piano-valse-d-am-lie-poulain",
+                       "title":  "[TUTO PIANO] Valse d\u0027Amélie Poulain",
+                       "midi":  "pieces/tuto-piano-valse-d-am-lie-poulain/[TUTO PIANO] Valse d\u0027Amélie Poulain.mid",
+                       "video":  "pieces/tuto-piano-valse-d-am-lie-poulain/[TUTO PIANO] Valse d\u0027Amélie Poulain.mp4"
+                   },
+                   {
+                       "id":  "tuto-piano-we-wish-you-a-merry-christmas-chans",
+                       "title":  "[TUTO PIANO] We wish you a merry Christmas _ chans",
+                       "midi":  "pieces/tuto-piano-we-wish-you-a-merry-christmas-chans/[TUTO PIANO] We wish you a merry Christmas _ chans.mid",
+                       "video":  "pieces/tuto-piano-we-wish-you-a-merry-christmas-chans/[TUTO PIANO] We wish you a merry Christmas _ chans.mp4"
+                   },
+                   {
+                       "id":  "always-remember-us-this-way-lady-gaga",
+                       "title":  "Always Remember Us This Way __ Lady Gaga ",
+                       "midi":  "pieces/always-remember-us-this-way-lady-gaga/Always Remember Us This Way __ Lady Gaga .mid",
+                       "video":  "pieces/always-remember-us-this-way-lady-gaga/Always Remember Us This Way __ Lady Gaga .mp4"
+                   },
+                   {
+                       "id":  "apprendre-dansons-de-celine-dion",
+                       "title":  "Apprendre DANSONS de CELINE DION",
+                       "midi":  "pieces/apprendre-dansons-de-celine-dion/Apprendre DANSONS de CELINE DION.mid",
+                       "video":  "pieces/apprendre-dansons-de-celine-dion/Apprendre DANSONS de CELINE DION.mp4"
+                   },
+                   {
+                       "id":  "m-thode-rose-page-6-et-7-01",
+                       "title":  "Méthode Rose page 6 et 7_01",
+                       "midi":  "pieces/m-thode-rose-page-6-et-7-01/Méthode Rose page 6 et 7_01.mid",
+                       "video":  "pieces/m-thode-rose-page-6-et-7-01/Méthode Rose page 6 et 7_01.mp4"
+                   },
+                   {
+                       "id":  "m-thode-rose-page-6-et-7-02",
+                       "title":  "Méthode Rose page 6 et 7_02",
+                       "midi":  "pieces/m-thode-rose-page-6-et-7-02/Méthode Rose page 6 et 7_02.mid",
+                       "video":  "pieces/m-thode-rose-page-6-et-7-02/Méthode Rose page 6 et 7_02.mp4"
+                   },
+                   {
+                       "id":  "m-thode-rose-page-6-et-7-03",
+                       "title":  "Méthode Rose page 6 et 7_03",
+                       "midi":  "pieces/m-thode-rose-page-6-et-7-03/Méthode Rose page 6 et 7_03.mid",
+                       "video":  "pieces/m-thode-rose-page-6-et-7-03/Méthode Rose page 6 et 7_03.mp4"
+                   },
+                   {
+                       "id":  "m-thode-rose-page-8-01",
+                       "title":  "Méthode Rose page 8_01",
+                       "midi":  "pieces/m-thode-rose-page-8-01/Méthode Rose page 8_01.mid",
+                       "video":  "pieces/m-thode-rose-page-8-01/Méthode Rose page 8_01.mp4"
+                   },
+                   {
+                       "id":  "m-thode-rose-page-8-02",
+                       "title":  "Méthode Rose page 8_02",
+                       "midi":  "pieces/m-thode-rose-page-8-02/Méthode Rose page 8_02.mid",
+                       "video":  "pieces/m-thode-rose-page-8-02/Méthode Rose page 8_02.mp4"
+                   },
+                   {
+                       "id":  "m-thode-rose-page-8-03",
+                       "title":  "Méthode Rose page 8_03",
+                       "midi":  "pieces/m-thode-rose-page-8-03/Méthode Rose page 8_03.mid",
+                       "video":  "pieces/m-thode-rose-page-8-03/Méthode Rose page 8_03.mp4"
+                   },
+                   {
+                       "id":  "m-thode-rose-page-8-04",
+                       "title":  "Méthode Rose page 8_04",
+                       "midi":  "pieces/m-thode-rose-page-8-04/Méthode Rose page 8_04.mid",
+                       "video":  "pieces/m-thode-rose-page-8-04/Méthode Rose page 8_04.mp4"
+                   },
+                   {
+                       "id":  "m-thode-rose-page-8-05",
+                       "title":  "Méthode Rose page 8_05",
+                       "midi":  "pieces/m-thode-rose-page-8-05/Méthode Rose page 8_05.mid",
+                       "video":  "pieces/m-thode-rose-page-8-05/Méthode Rose page 8_05.mp4"
+                   },
+                   {
+                       "id":  "m-thode-rose-page-9-01",
+                       "title":  "Méthode Rose page 9_01",
+                       "midi":  "pieces/m-thode-rose-page-9-01/Méthode Rose page 9_01.mid",
+                       "video":  "pieces/m-thode-rose-page-9-01/Méthode Rose page 9_01.mp4"
+                   },
+                   {
+                       "id":  "m-thode-rose-page-9-02",
+                       "title":  "Méthode Rose page 9_02",
+                       "midi":  "pieces/m-thode-rose-page-9-02/Méthode Rose page 9_02.mid",
+                       "video":  "pieces/m-thode-rose-page-9-02/Méthode Rose page 9_02.mp4"
+                   },
+                   {
+                       "id":  "m-thode-rose-page-9-03",
+                       "title":  "Méthode Rose page 9_03",
+                       "midi":  "pieces/m-thode-rose-page-9-03/Méthode Rose page 9_03.mid",
+                       "video":  "pieces/m-thode-rose-page-9-03/Méthode Rose page 9_03.mp4"
+                   },
+                   {
+                       "id":  "m-thode-rose-page-9-04",
+                       "title":  "Méthode Rose page 9_04",
+                       "midi":  "pieces/m-thode-rose-page-9-04/Méthode Rose page 9_04.mid",
+                       "video":  "pieces/m-thode-rose-page-9-04/Méthode Rose page 9_04.mp4"
+                   },
+                   {
+                       "id":  "m-thode-rose-page-9-05",
+                       "title":  "Méthode Rose page 9_05",
+                       "midi":  "pieces/m-thode-rose-page-9-05/Méthode Rose page 9_05.mid",
+                       "video":  "pieces/m-thode-rose-page-9-05/Méthode Rose page 9_05.mp4"
+                   },
+                   {
+                       "id":  "m-thode-rose-page-9-06",
+                       "title":  "Méthode Rose page 9_06",
+                       "midi":  "pieces/m-thode-rose-page-9-06/Méthode Rose page 9_06.mid",
+                       "video":  "pieces/m-thode-rose-page-9-06/Méthode Rose page 9_06.mp4"
+                   },
+                   {
+                       "id":  "m-thode-rose-page-9-07",
+                       "title":  "Méthode Rose page 9_07",
+                       "midi":  "pieces/m-thode-rose-page-9-07/Méthode Rose page 9_07.mid",
+                       "video":  "pieces/m-thode-rose-page-9-07/Méthode Rose page 9_07.mp4"
+                   },
+                   {
+                       "id":  "m-thode-rose-page-9-08",
+                       "title":  "Méthode Rose page 9_08",
+                       "midi":  "pieces/m-thode-rose-page-9-08/Méthode Rose page 9_08.mid",
+                       "video":  "pieces/m-thode-rose-page-9-08/Méthode Rose page 9_08.mp4"
+                   },
+                   {
+                       "id":  "m-thode-rose-page-9-09",
+                       "title":  "Méthode Rose page 9_09",
+                       "midi":  "pieces/m-thode-rose-page-9-09/Méthode Rose page 9_09.mid",
+                       "video":  "pieces/m-thode-rose-page-9-09/Méthode Rose page 9_09.mp4"
+                   },
+                   {
+                       "id":  "m-thode-rose-page-10-position-de-sol-01",
+                       "title":  "Méthode Rose page 10_ Position de Sol_01",
+                       "midi":  "pieces/m-thode-rose-page-10-position-de-sol-01/Méthode Rose page 10_ Position de Sol_01.mid",
+                       "video":  "pieces/m-thode-rose-page-10-position-de-sol-01/Méthode Rose page 10_ Position de Sol_01.mp4"
+                   },
+                   {
+                       "id":  "m-thode-rose-page-10-position-de-sol-02",
+                       "title":  "Méthode Rose page 10_ Position de Sol_02",
+                       "midi":  "pieces/m-thode-rose-page-10-position-de-sol-02/Méthode Rose page 10_ Position de Sol_02.mid",
+                       "video":  "pieces/m-thode-rose-page-10-position-de-sol-02/Méthode Rose page 10_ Position de Sol_02.mp4"
+                   },
+                   {
+                       "id":  "m-thode-rose-page-10-position-de-sol-03",
+                       "title":  "Méthode Rose page 10_ Position de Sol_03",
+                       "midi":  "pieces/m-thode-rose-page-10-position-de-sol-03/Méthode Rose page 10_ Position de Sol_03.mid",
+                       "video":  "pieces/m-thode-rose-page-10-position-de-sol-03/Méthode Rose page 10_ Position de Sol_03.mp4"
+                   },
+                   {
+                       "id":  "m-thode-rose-page-10-position-de-sol-04",
+                       "title":  "Méthode Rose page 10_ Position de Sol_04",
+                       "midi":  "pieces/m-thode-rose-page-10-position-de-sol-04/Méthode Rose page 10_ Position de Sol_04.mid",
+                       "video":  "pieces/m-thode-rose-page-10-position-de-sol-04/Méthode Rose page 10_ Position de Sol_04.mp4"
+                   },
+                   {
+                       "id":  "m-thode-rose-page-10-position-de-sol-05",
+                       "title":  "Méthode Rose page 10_ Position de Sol_05",
+                       "midi":  "pieces/m-thode-rose-page-10-position-de-sol-05/Méthode Rose page 10_ Position de Sol_05.mid",
+                       "video":  "pieces/m-thode-rose-page-10-position-de-sol-05/Méthode Rose page 10_ Position de Sol_05.mp4"
+                   },
+                   {
+                       "id":  "m-thode-rose-page-10-position-de-sol-06",
+                       "title":  "Méthode Rose page 10_ Position de Sol_06",
+                       "midi":  "pieces/m-thode-rose-page-10-position-de-sol-06/Méthode Rose page 10_ Position de Sol_06.mid",
+                       "video":  "pieces/m-thode-rose-page-10-position-de-sol-06/Méthode Rose page 10_ Position de Sol_06.mp4"
+                   },
+                   {
+                       "id":  "m-thode-rose-page-10-position-de-sol-07",
+                       "title":  "Méthode Rose page 10_ Position de Sol_07",
+                       "midi":  "pieces/m-thode-rose-page-10-position-de-sol-07/Méthode Rose page 10_ Position de Sol_07.mid",
+                       "video":  "pieces/m-thode-rose-page-10-position-de-sol-07/Méthode Rose page 10_ Position de Sol_07.mp4"
+                   },
+                   {
+                       "id":  "m-thode-rose-page-10-position-de-sol-08",
+                       "title":  "Méthode Rose page 10_ Position de Sol_08",
+                       "midi":  "pieces/m-thode-rose-page-10-position-de-sol-08/Méthode Rose page 10_ Position de Sol_08.mid",
+                       "video":  "pieces/m-thode-rose-page-10-position-de-sol-08/Méthode Rose page 10_ Position de Sol_08.mp4"
+                   },
+                   {
+                       "id":  "m-thode-rose-page-11-01",
+                       "title":  "Méthode Rose page 11_01",
+                       "midi":  "pieces/m-thode-rose-page-11-01/Méthode Rose page 11_01.mid",
+                       "video":  "pieces/m-thode-rose-page-11-01/Méthode Rose page 11_01.mp4"
+                   },
+                   {
+                       "id":  "m-thode-rose-page-11-02",
+                       "title":  "Méthode Rose page 11_02",
+                       "midi":  "pieces/m-thode-rose-page-11-02/Méthode Rose page 11_02.mid",
+                       "video":  "pieces/m-thode-rose-page-11-02/Méthode Rose page 11_02.mp4"
+                   },
+                   {
+                       "id":  "m-thode-rose-page-11-03",
+                       "title":  "Méthode Rose page 11_03",
+                       "midi":  "pieces/m-thode-rose-page-11-03/Méthode Rose page 11_03.mid",
+                       "video":  "pieces/m-thode-rose-page-11-03/Méthode Rose page 11_03.mp4"
+                   },
+                   {
+                       "id":  "m-thode-rose-page-11-04",
+                       "title":  "Méthode Rose page 11_04",
+                       "midi":  "pieces/m-thode-rose-page-11-04/Méthode Rose page 11_04.mid",
+                       "video":  "pieces/m-thode-rose-page-11-04/Méthode Rose page 11_04.mp4"
+                   },
+                   {
+                       "id":  "m-thode-rose-page-11-05",
+                       "title":  "Méthode Rose page 11_05",
+                       "midi":  "pieces/m-thode-rose-page-11-05/Méthode Rose page 11_05.mid",
+                       "video":  "pieces/m-thode-rose-page-11-05/Méthode Rose page 11_05.mp4"
+                   },
+                   {
+                       "id":  "m-thode-rose-page-11-06",
+                       "title":  "Méthode Rose page 11_06",
+                       "midi":  "pieces/m-thode-rose-page-11-06/Méthode Rose page 11_06.mid",
+                       "video":  "pieces/m-thode-rose-page-11-06/Méthode Rose page 11_06.mp4"
+                   },
+                   {
+                       "id":  "m-thode-rose-page-11-07",
+                       "title":  "Méthode Rose page 11_07",
+                       "midi":  "pieces/m-thode-rose-page-11-07/Méthode Rose page 11_07.mid",
+                       "video":  "pieces/m-thode-rose-page-11-07/Méthode Rose page 11_07.mp4"
+                   },
+                   {
+                       "id":  "m-thode-rose-page-11-08",
+                       "title":  "Méthode Rose page 11_08",
+                       "midi":  "pieces/m-thode-rose-page-11-08/Méthode Rose page 11_08.mid",
+                       "video":  "pieces/m-thode-rose-page-11-08/Méthode Rose page 11_08.mp4"
+                   },
+                   {
+                       "id":  "m-thode-rose-page-11-09",
+                       "title":  "Méthode Rose page 11_09",
+                       "midi":  "pieces/m-thode-rose-page-11-09/Méthode Rose page 11_09.mid",
+                       "video":  "pieces/m-thode-rose-page-11-09/Méthode Rose page 11_09.mp4"
+                   },
+                   {
+                       "id":  "m-thode-rose-page-11-10",
+                       "title":  "Méthode Rose page 11_10",
+                       "midi":  "pieces/m-thode-rose-page-11-10/Méthode Rose page 11_10.mid",
+                       "video":  "pieces/m-thode-rose-page-11-10/Méthode Rose page 11_10.mp4"
+                   },
+                   {
+                       "id":  "m-thode-rose-page-11-11",
+                       "title":  "Méthode Rose page 11_11",
+                       "midi":  "pieces/m-thode-rose-page-11-11/Méthode Rose page 11_11.mid",
+                       "video":  "pieces/m-thode-rose-page-11-11/Méthode Rose page 11_11.mp4"
+                   },
+                   {
+                       "id":  "m-thode-rose-page-11-12",
+                       "title":  "Méthode Rose page 11_12",
+                       "midi":  "pieces/m-thode-rose-page-11-12/Méthode Rose page 11_12.mid",
+                       "video":  "pieces/m-thode-rose-page-11-12/Méthode Rose page 11_12.mp4"
+                   },
+                   {
+                       "id":  "m-thode-rose-page-12-01",
+                       "title":  "Méthode Rose page 12_01",
+                       "midi":  "pieces/m-thode-rose-page-12-01/Méthode Rose page 12_01.mid",
+                       "video":  "pieces/m-thode-rose-page-12-01/Méthode Rose page 12_01.mp4"
+                   },
+                   {
+                       "id":  "m-thode-rose-page-12-02",
+                       "title":  "Méthode Rose page 12_02",
+                       "midi":  "pieces/m-thode-rose-page-12-02/Méthode Rose page 12_02.mid",
+                       "video":  "pieces/m-thode-rose-page-12-02/Méthode Rose page 12_02.mp4"
+                   },
+                   {
+                       "id":  "m-thode-rose-page-12-03",
+                       "title":  "Méthode Rose page 12_03",
+                       "midi":  "pieces/m-thode-rose-page-12-03/Méthode Rose page 12_03.mid",
+                       "video":  "pieces/m-thode-rose-page-12-03/Méthode Rose page 12_03.mp4"
+                   },
+                   {
+                       "id":  "m-thode-rose-page-12-04",
+                       "title":  "Méthode Rose page 12_04",
+                       "midi":  "pieces/m-thode-rose-page-12-04/Méthode Rose page 12_04.mid",
+                       "video":  "pieces/m-thode-rose-page-12-04/Méthode Rose page 12_04.mp4"
+                   },
+                   {
+                       "id":  "m-thode-rose-page-13-je-commence-01",
+                       "title":  "Méthode Rose page 13_ Je Commence_01",
+                       "midi":  "pieces/m-thode-rose-page-13-je-commence-01/Méthode Rose page 13_ Je Commence_01.mid",
+                       "video":  "pieces/m-thode-rose-page-13-je-commence-01/Méthode Rose page 13_ Je Commence_01.mp4"
+                   },
+                   {
+                       "id":  "m-thode-rose-page-13-je-commence-02",
+                       "title":  "Méthode Rose page 13_ Je Commence_02",
+                       "midi":  "pieces/m-thode-rose-page-13-je-commence-02/Méthode Rose page 13_ Je Commence_02.mid",
+                       "video":  "pieces/m-thode-rose-page-13-je-commence-02/Méthode Rose page 13_ Je Commence_02.mp4"
+                   },
+                   {
+                       "id":  "m-thode-rose-page-13-les-premiers-pas-01",
+                       "title":  "Méthode Rose page 13_ Les Premiers pas 01",
+                       "midi":  "pieces/m-thode-rose-page-13-les-premiers-pas-01/Méthode Rose page 13_ Les Premiers pas 01.mid",
+                       "video":  "pieces/m-thode-rose-page-13-les-premiers-pas-01/Méthode Rose page 13_ Les Premiers pas 01.mp4"
+                   },
+                   {
+                       "id":  "m-thode-rose-page-14-01",
+                       "title":  "Méthode Rose page 14_01",
+                       "midi":  "pieces/m-thode-rose-page-14-01/Méthode Rose page 14_01.mid",
+                       "video":  "pieces/m-thode-rose-page-14-01/Méthode Rose page 14_01.mp4"
+                   },
+                   {
+                       "id":  "m-thode-rose-page-14-02",
+                       "title":  "Méthode Rose page 14_02",
+                       "midi":  "pieces/m-thode-rose-page-14-02/Méthode Rose page 14_02.mid",
+                       "video":  "pieces/m-thode-rose-page-14-02/Méthode Rose page 14_02.mp4"
+                   },
+                   {
+                       "id":  "m-thode-rose-page-14-03",
+                       "title":  "Méthode Rose page 14_03",
+                       "midi":  "pieces/m-thode-rose-page-14-03/Méthode Rose page 14_03.mid",
+                       "video":  "pieces/m-thode-rose-page-14-03/Méthode Rose page 14_03.mp4"
+                   },
+                   {
+                       "id":  "m-thode-rose-page-14-04",
+                       "title":  "Méthode Rose page 14_04",
+                       "midi":  "pieces/m-thode-rose-page-14-04/Méthode Rose page 14_04.mid",
+                       "video":  "pieces/m-thode-rose-page-14-04/Méthode Rose page 14_04.mp4"
+                   },
+                   {
+                       "id":  "m-thode-rose-page-15-01",
+                       "title":  "Méthode Rose page 15_01",
+                       "midi":  "pieces/m-thode-rose-page-15-01/Méthode Rose page 15_01.mid",
+                       "video":  "pieces/m-thode-rose-page-15-01/Méthode Rose page 15_01.mp4"
+                   },
+                   {
+                       "id":  "m-thode-rose-page-15-02",
+                       "title":  "Méthode Rose page 15_02",
+                       "midi":  "pieces/m-thode-rose-page-15-02/Méthode Rose page 15_02.mid",
+                       "video":  "pieces/m-thode-rose-page-15-02/Méthode Rose page 15_02.mp4"
+                   },
+                   {
+                       "id":  "m-thode-rose-page-15-03",
+                       "title":  "Méthode Rose page 15_03",
+                       "midi":  "pieces/m-thode-rose-page-15-03/Méthode Rose page 15_03.mid",
+                       "video":  "pieces/m-thode-rose-page-15-03/Méthode Rose page 15_03.mp4"
+                   },
+                   {
+                       "id":  "m-thode-rose-page-15-04",
+                       "title":  "Méthode Rose page 15_04",
+                       "midi":  "pieces/m-thode-rose-page-15-04/Méthode Rose page 15_04.mid",
+                       "video":  "pieces/m-thode-rose-page-15-04/Méthode Rose page 15_04.mp4"
+                   },
+                   {
+                       "id":  "m-thode-rose-page-16-01",
+                       "title":  "Méthode Rose page 16_01",
+                       "midi":  "pieces/m-thode-rose-page-16-01/Méthode Rose page 16_01.mid",
+                       "video":  "pieces/m-thode-rose-page-16-01/Méthode Rose page 16_01.mp4"
+                   },
+                   {
+                       "id":  "m-thode-rose-page-16-02",
+                       "title":  "Méthode Rose page 16_02",
+                       "midi":  "pieces/m-thode-rose-page-16-02/Méthode Rose page 16_02.mid",
+                       "video":  "pieces/m-thode-rose-page-16-02/Méthode Rose page 16_02.mp4"
+                   },
+                   {
+                       "id":  "m-thode-rose-page-16-03",
+                       "title":  "Méthode Rose page 16_03",
+                       "midi":  "pieces/m-thode-rose-page-16-03/Méthode Rose page 16_03.mid",
+                       "video":  "pieces/m-thode-rose-page-16-03/Méthode Rose page 16_03.mp4"
+                   },
+                   {
+                       "id":  "m-thode-rose-page-16-04",
+                       "title":  "Méthode Rose page 16_04",
+                       "midi":  "pieces/m-thode-rose-page-16-04/Méthode Rose page 16_04.mid",
+                       "video":  "pieces/m-thode-rose-page-16-04/Méthode Rose page 16_04.mp4"
+                   },
+                   {
+                       "id":  "m-thode-rose-page-16-05",
+                       "title":  "Méthode Rose page 16_05",
+                       "midi":  "pieces/m-thode-rose-page-16-05/Méthode Rose page 16_05.mid",
+                       "video":  "pieces/m-thode-rose-page-16-05/Méthode Rose page 16_05.mp4"
+                   },
+                   {
+                       "id":  "m-thode-rose-page-16-06",
+                       "title":  "Méthode Rose page 16_06",
+                       "midi":  "pieces/m-thode-rose-page-16-06/Méthode Rose page 16_06.mid",
+                       "video":  "pieces/m-thode-rose-page-16-06/Méthode Rose page 16_06.mp4"
+                   },
+                   {
+                       "id":  "m-thode-rose-page-16-07",
+                       "title":  "Méthode Rose page 16_07",
+                       "midi":  "pieces/m-thode-rose-page-16-07/Méthode Rose page 16_07.mid",
+                       "video":  "pieces/m-thode-rose-page-16-07/Méthode Rose page 16_07.mp4"
+                   },
+                   {
+                       "id":  "m-thode-rose-page-16-08",
+                       "title":  "Méthode Rose page 16_08",
+                       "midi":  "pieces/m-thode-rose-page-16-08/Méthode Rose page 16_08.mid",
+                       "video":  "pieces/m-thode-rose-page-16-08/Méthode Rose page 16_08.mp4"
+                   },
+                   {
+                       "id":  "m-thode-rose-page-16-09",
+                       "title":  "Méthode Rose page 16_09",
+                       "midi":  "pieces/m-thode-rose-page-16-09/Méthode Rose page 16_09.mid",
+                       "video":  "pieces/m-thode-rose-page-16-09/Méthode Rose page 16_09.mp4"
+                   },
+                   {
+                       "id":  "m-thode-rose-page-16-10",
+                       "title":  "Méthode Rose page 16_10",
+                       "midi":  "pieces/m-thode-rose-page-16-10/Méthode Rose page 16_10.mid",
+                       "video":  "pieces/m-thode-rose-page-16-10/Méthode Rose page 16_10.mp4"
+                   },
+                   {
+                       "id":  "m-thode-rose-page-17-01",
+                       "title":  "Méthode Rose page 17_01",
+                       "midi":  "pieces/m-thode-rose-page-17-01/Méthode Rose page 17_01.mid",
+                       "video":  "pieces/m-thode-rose-page-17-01/Méthode Rose page 17_01.mp4"
+                   },
+                   {
+                       "id":  "m-thode-rose-page-17-02",
+                       "title":  "Méthode Rose page 17_02",
+                       "midi":  "pieces/m-thode-rose-page-17-02/Méthode Rose page 17_02.mid",
+                       "video":  "pieces/m-thode-rose-page-17-02/Méthode Rose page 17_02.mp4"
+                   },
+                   {
+                       "id":  "m-thode-rose-page-18-01",
+                       "title":  "Méthode Rose page 18_01",
+                       "midi":  "pieces/m-thode-rose-page-18-01/Méthode Rose page 18_01.mid",
+                       "video":  "pieces/m-thode-rose-page-18-01/Méthode Rose page 18_01.mp4"
+                   },
+                   {
+                       "id":  "m-thode-rose-page-18-02",
+                       "title":  "Méthode Rose page 18_02",
+                       "midi":  "pieces/m-thode-rose-page-18-02/Méthode Rose page 18_02.mid",
+                       "video":  "pieces/m-thode-rose-page-18-02/Méthode Rose page 18_02.mp4"
+                   },
+                   {
+                       "id":  "m-thode-rose-page-18-03",
+                       "title":  "Méthode Rose page 18_03",
+                       "midi":  "pieces/m-thode-rose-page-18-03/Méthode Rose page 18_03.mid",
+                       "video":  "pieces/m-thode-rose-page-18-03/Méthode Rose page 18_03.mp4"
+                   },
+                   {
+                       "id":  "m-thode-rose-page-18-04",
+                       "title":  "Méthode Rose page 18_04",
+                       "midi":  "pieces/m-thode-rose-page-18-04/Méthode Rose page 18_04.mid",
+                       "video":  "pieces/m-thode-rose-page-18-04/Méthode Rose page 18_04.mp4"
+                   },
+                   {
+                       "id":  "m-thode-rose-page-18-05",
+                       "title":  "Méthode Rose page 18_05",
+                       "midi":  "pieces/m-thode-rose-page-18-05/Méthode Rose page 18_05.mid",
+                       "video":  "pieces/m-thode-rose-page-18-05/Méthode Rose page 18_05.mp4"
+                   },
+                   {
+                       "id":  "m-thode-rose-page-18-06",
+                       "title":  "Méthode Rose page 18_06",
+                       "midi":  "pieces/m-thode-rose-page-18-06/Méthode Rose page 18_06.mid",
+                       "video":  "pieces/m-thode-rose-page-18-06/Méthode Rose page 18_06.mp4"
+                   },
+                   {
+                       "id":  "m-thode-rose-page-18-07",
+                       "title":  "Méthode Rose page 18_07",
+                       "midi":  "pieces/m-thode-rose-page-18-07/Méthode Rose page 18_07.mid",
+                       "video":  "pieces/m-thode-rose-page-18-07/Méthode Rose page 18_07.mp4"
+                   },
+                   {
+                       "id":  "m-thode-rose-page-19-01",
+                       "title":  "Méthode Rose page 19_01",
+                       "midi":  "pieces/m-thode-rose-page-19-01/Méthode Rose page 19_01.mid",
+                       "video":  "pieces/m-thode-rose-page-19-01/Méthode Rose page 19_01.mp4"
+                   },
+                   {
+                       "id":  "m-thode-rose-page-19-02",
+                       "title":  "Méthode Rose page 19_02",
+                       "midi":  "pieces/m-thode-rose-page-19-02/Méthode Rose page 19_02.mid",
+                       "video":  "pieces/m-thode-rose-page-19-02/Méthode Rose page 19_02.mp4"
+                   },
+                   {
+                       "id":  "m-thode-rose-page-19-03",
+                       "title":  "Méthode Rose page 19_03",
+                       "midi":  "pieces/m-thode-rose-page-19-03/Méthode Rose page 19_03.mid",
+                       "video":  "pieces/m-thode-rose-page-19-03/Méthode Rose page 19_03.mp4"
+                   },
+                   {
+                       "id":  "m-thode-rose-page-19-04",
+                       "title":  "Méthode Rose page 19_04",
+                       "midi":  "pieces/m-thode-rose-page-19-04/Méthode Rose page 19_04.mid",
+                       "video":  "pieces/m-thode-rose-page-19-04/Méthode Rose page 19_04.mp4"
+                   },
+                   {
+                       "id":  "m-thode-rose-page-20-01",
+                       "title":  "Méthode Rose page 20_01",
+                       "midi":  "pieces/m-thode-rose-page-20-01/Méthode Rose page 20_01.mid",
+                       "video":  "pieces/m-thode-rose-page-20-01/Méthode Rose page 20_01.mp4"
+                   },
+                   {
+                       "id":  "m-thode-rose-page-20-02",
+                       "title":  "Méthode Rose page 20_02",
+                       "midi":  "pieces/m-thode-rose-page-20-02/Méthode Rose page 20_02.mid",
+                       "video":  "pieces/m-thode-rose-page-20-02/Méthode Rose page 20_02.mp4"
+                   },
+                   {
+                       "id":  "m-thode-rose-page-20-03",
+                       "title":  "Méthode Rose page 20_03",
+                       "midi":  "pieces/m-thode-rose-page-20-03/Méthode Rose page 20_03.mid",
+                       "video":  "pieces/m-thode-rose-page-20-03/Méthode Rose page 20_03.mp4"
+                   },
+                   {
+                       "id":  "m-thode-rose-page-20-04",
+                       "title":  "Méthode Rose page 20_04",
+                       "midi":  "pieces/m-thode-rose-page-20-04/Méthode Rose page 20_04.mid",
+                       "video":  "pieces/m-thode-rose-page-20-04/Méthode Rose page 20_04.mp4"
+                   },
+                   {
+                       "id":  "m-thode-rose-page-20-05",
+                       "title":  "Méthode Rose page 20_05",
+                       "midi":  "pieces/m-thode-rose-page-20-05/Méthode Rose page 20_05.mid",
+                       "video":  "pieces/m-thode-rose-page-20-05/Méthode Rose page 20_05.mp4"
+                   },
+                   {
+                       "id":  "m-thode-rose-page-20-06",
+                       "title":  "Méthode Rose page 20_06",
+                       "midi":  "pieces/m-thode-rose-page-20-06/Méthode Rose page 20_06.mid",
+                       "video":  "pieces/m-thode-rose-page-20-06/Méthode Rose page 20_06.mp4"
+                   },
+                   {
+                       "id":  "m-thode-rose-page-20-07",
+                       "title":  "Méthode Rose page 20_07",
+                       "midi":  "pieces/m-thode-rose-page-20-07/Méthode Rose page 20_07.mid",
+                       "video":  "pieces/m-thode-rose-page-20-07/Méthode Rose page 20_07.mp4"
+                   },
+                   {
+                       "id":  "m-thode-rose-page-20-08",
+                       "title":  "Méthode Rose page 20_08",
+                       "midi":  "pieces/m-thode-rose-page-20-08/Méthode Rose page 20_08.mid",
+                       "video":  "pieces/m-thode-rose-page-20-08/Méthode Rose page 20_08.mp4"
+                   },
+                   {
+                       "id":  "m-thode-rose-page-20-09",
+                       "title":  "Méthode Rose page 20_09",
+                       "midi":  "pieces/m-thode-rose-page-20-09/Méthode Rose page 20_09.mid",
+                       "video":  "pieces/m-thode-rose-page-20-09/Méthode Rose page 20_09.mp4"
+                   },
+                   {
+                       "id":  "m-thode-rose-page-20-10",
+                       "title":  "Méthode Rose page 20_10",
+                       "midi":  "pieces/m-thode-rose-page-20-10/Méthode Rose page 20_10.mid",
+                       "video":  "pieces/m-thode-rose-page-20-10/Méthode Rose page 20_10.mp4"
+                   }
+               ]
+}
