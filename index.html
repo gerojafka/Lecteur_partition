@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-<title>Apprendre à lire les notes · v2026.10.17.1</title>
+<title>Apprendre à lire les notes · v2026.10.17.12</title>
 <script>try{document.documentElement.dataset.theme=localStorage.getItem("lecture-notes-theme")==="night"?"night":"day"}catch(error){document.documentElement.dataset.theme="day"}</script>
 <style>
   :root {
@@ -2166,6 +2166,9 @@ body.partition-load-in-controls .partition-loop-field .loop-hover-help,
 body.partition-load-in-controls .partition-loop-field #partitionLoopInfo { display:none !important; }
 body.partition-load-in-controls .partition-playback-row > .partition-field:has(.tempo-slider-wrap) { flex:0 0 120px; min-width:120px; margin-left:auto; }
 body.partition-load-in-controls #partitionControlsWrap .partition-playback-row .tempo-slider-wrap { width:120px; min-width:120px; }
+body.partition-load-in-controls #partitionControlsWrap .partition-playback-row .tempo-slider-wrap input[type="range"] { flex:0 0 48px; width:48px; min-width:48px; }
+body.partition-load-in-controls #partitionControlsWrap .partition-playback-row .tempo-values { flex:0 0 66px; min-width:66px; }
+body.partition-load-in-controls #partitionControlsWrap .partition-playback-row .tempo-val { min-width:0; font-size:11px; }
 body.partition-video-mode .partition-primary-row { display:none; }
 .new-home-shell { width:min(1080px,calc(100% - 46px)); height:100%; margin:auto; display:grid; grid-template-rows:auto auto 1fr auto auto; }
 .new-home-header { display:flex; align-items:center; justify-content:space-between; gap:18px; padding:20px 0; border-bottom:1px solid #3b284214; }
@@ -2329,11 +2332,66 @@ html[data-theme="night"] .key.black { color:#f8fafc; background:linear-gradient(
   .new-home-float,.new-home-falling,.new-home-note-name,.new-home-note-symbol,.new-home-scroll,.new-home-piano i,.new-home-piano i::after,.new-home-piano::after { animation:none !important; }
 }
 
+
+.musicxml-score { position:relative; width:100%; height:clamp(230px,34vh,320px); min-height:0; overflow:hidden; border-radius:7px; background:#edf1f6; }
+.musicxml-systems { height:100%; display:grid; grid-template-rows:repeat(2,minmax(0,1fr)); gap:7px; overflow:hidden; padding:7px; }
+.musicxml-systems.single { grid-template-rows:minmax(0,1fr); }
+.musicxml-system-slot { display:flex; min-width:0; min-height:0; align-items:center; justify-content:center; overflow:hidden; }
+.musicxml-system-slot > svg { display:block; max-width:100%; max-height:100%; color:#111; background:#fff; border-radius:8px; box-shadow:0 6px 20px rgba(20,34,51,.08); }
+.musicxml-system-slot .musicxml-current-note { color:#d92e63; fill:#d92e63; }
+.musicxml-score-cursor { stroke:#e53764; stroke-width:3; vector-effect:non-scaling-stroke; pointer-events:none; }
+.musicxml-measure-veil { fill:#ec4a7b; fill-opacity:.18; pointer-events:none; }
+.musicxml-loading { position:absolute; z-index:4; inset:0; display:flex; align-items:center; justify-content:center; gap:10px; color:#526176; background:#edf1f6e8; }
+.musicxml-loading span { width:22px; height:22px; border:3px solid #cbd5e1; border-top-color:#2e73df; border-radius:50%; animation:musicxml-spin .8s linear infinite; }
+.musicxml-score-status { position:absolute; right:12px; bottom:7px; z-index:3; padding:3px 8px; color:#506176; border-radius:20px; background:#ffffffdf; font-size:11px; font-weight:750; font-variant-numeric:tabular-nums; box-shadow:0 2px 8px #172c4815; }
+.partition-piano-panel { height:clamp(126px,19vh,164px); margin-top:5px; padding:5px 10px 0; overflow:hidden; color:#fff; border-radius:8px; background:#142039; }
+.partition-piano-caption { display:flex; height:22px; align-items:center; justify-content:space-between; gap:12px; }
+.partition-piano-caption b { font-size:12px; }
+.partition-piano-caption small { color:#c2cfe2; font-size:10px; }
+.partition-piano-scroll { height:calc(100% - 22px); overflow:auto hidden; scrollbar-width:thin; touch-action:pan-x; }
+.partition-piano { position:relative; height:100%; min-width:100%; margin:0 auto; padding-top:24px; }
+.partition-piano-key { position:absolute; top:24px; min-height:0; padding:0; border:1px solid #7d8ca5; border-radius:0 0 5px 5px; user-select:none; touch-action:none; }
+.partition-piano-key.white { z-index:1; width:30px; height:calc(100% - 26px); background:linear-gradient(#fff,#e8edf6); }
+.partition-piano-key.black { z-index:2; width:19px; height:58%; border-color:#070d18; background:linear-gradient(#344157,#090f1d); }
+.partition-piano-key.expected { background:#73e0c9!important; box-shadow:inset 0 0 0 2px #23ae94; }
+.partition-piano-key.pressed { background:#c0b0ff!important; }
+.partition-piano-key.wrong { background:#f58ea9!important; }
+.partition-piano-key .octave-label { position:absolute; right:0; bottom:4px; left:0; color:#64748b; font-size:8px; }
+.partition-note-label { position:absolute; z-index:4; top:0; transform:translateX(-50%); padding:0 5px; color:#fff; border-radius:5px; background:#7652d5; font-size:12px; font-weight:800; line-height:21px; pointer-events:none; }
+body.partition-video-expanded .musicxml-score { display:none!important; }
+html[data-theme="night"] .musicxml-score,html[data-theme="night"] .musicxml-loading { background:#111b2a; }
+html[data-theme="night"] .musicxml-system-slot > svg { background:#f7f5ef; }
+@keyframes musicxml-spin { to { transform:rotate(360deg); } }
+@media(max-height:760px){.musicxml-score{height:clamp(205px,31vh,270px)}.partition-piano-panel{height:120px}.musicxml-systems{gap:5px;padding:5px}}
+@media(max-height:620px){.musicxml-score{height:190px}.partition-piano-panel{height:105px}.partition-piano-caption{height:18px}.partition-piano-scroll{height:calc(100% - 18px)}.partition-piano-key{top:20px}.partition-piano-caption small{display:none}}
+@media(max-width:700px){.musicxml-score{height:260px}.partition-piano-panel{height:132px}.musicxml-score-status{font-size:9px}}
+body.partition-score-layout { height:100dvh; overflow:hidden; }
+body.partition-score-layout .wrap { display:flex; height:calc(100dvh - 14px); min-height:0; flex-direction:column; }
+body.partition-score-layout .app-titlebar { flex:0 0 auto; }
+body.partition-score-layout > .wrap > .subtitle { display:none; }
+body.partition-score-layout .card { display:flex; min-height:0; flex:1 1 auto; flex-direction:column; overflow:hidden; }
+body.partition-score-layout:not(.partition-video-expanded) #appWorkspace { display:grid; min-height:0; flex:1 1 auto; gap:4px; }
+body.partition-score-layout.partition-video-mode:not(.partition-video-expanded) #appWorkspace { grid-template-rows:auto minmax(0,4fr) minmax(0,4fr) minmax(0,2fr); }
+body.partition-score-layout:not(.partition-video-mode):not(.partition-video-expanded) #appWorkspace { grid-template-rows:auto minmax(0,2fr) minmax(0,1fr); }
+body.partition-score-layout:not(.partition-video-expanded) #partitionControlsWrap { min-height:0; grid-row:1; }
+body.partition-score-layout.partition-video-mode:not(.partition-video-expanded) .partition-video-wrap { width:100%; height:100%; min-height:0; max-height:none; grid-row:2; margin:0; }
+body.partition-score-layout.partition-video-mode:not(.partition-video-expanded) .partition-video { width:100%; height:100%; max-height:none; object-fit:contain; }
+body.partition-score-layout:not(.partition-video-expanded) .stage { width:100%; height:100%; min-height:0; margin:0; padding:3px; overflow:hidden; }
+body.partition-score-layout.partition-video-mode:not(.partition-video-expanded) .stage { grid-row:3; }
+body.partition-score-layout:not(.partition-video-mode):not(.partition-video-expanded) .stage { grid-row:2; }
+body.partition-score-layout:not(.partition-video-expanded) .musicxml-score { width:100%; height:100%; }
+body.partition-score-layout:not(.partition-video-expanded) .stage #staff { width:100%; height:100%; object-fit:contain; }
+body.partition-score-layout:not(.partition-video-expanded) .partition-piano-panel { width:100%; height:100%; min-height:0; margin:0; }
+body.partition-score-layout.partition-video-mode:not(.partition-video-expanded) .partition-piano-panel { grid-row:4; }
+body.partition-score-layout:not(.partition-video-mode):not(.partition-video-expanded) .partition-piano-panel { grid-row:3; }
+
+.tempo-values { display:grid; flex:0 0 70px; min-width:70px; line-height:1.05; }
+.tempo-origin { margin-top:3px; color:var(--muted); font-size:9px; font-weight:750; font-variant-numeric:tabular-nums; white-space:nowrap; }
 </style>
 </head>
 <body>
   <main class="wrap">
-    <span class="build-version" title="Version de l’application">v2026.10.17.1</span>
+    <span class="build-version" title="Version de l’application">v2026.10.17.12</span>
     <header class="app-titlebar">
       <button type="button" class="btn-sm icon-only titlebar-back" id="homeMenuBtn" title="Retour au menu" aria-label="Retour au menu" hidden>⏎</button>
       <button type="button" class="theme-toggle app-theme-toggle" id="appThemeToggle" aria-label="Activer le mode nuit" title="Activer le mode nuit">☾</button>
@@ -2451,7 +2509,7 @@ html[data-theme="night"] .key.black { color:#f8fafc; background:linear-gradient(
               <label for="midiFileInput" class="btn-sm primary" style="cursor:pointer;" title="Sélectionner ensemble le MIDI et son MP4">
                 <span class="folder-open-icon" aria-hidden="true"><svg viewBox="0 0 32 26"><path class="folder-back" d="M2 5a3 3 0 0 1 3-3h7l3.5 3.5H27a3 3 0 0 1 3 3v9H2V5Z"/><path class="folder-front" d="M5.2 9h23.6a2.5 2.5 0 0 1 2.4 3.1l-3 10.5a2.5 2.5 0 0 1-2.4 1.9H3.2a2.5 2.5 0 0 1-2.4-3.2L4 10.8A1.3 1.3 0 0 1 5.2 9Z"/></svg></span> <span data-i="loadMidi">Charger MIDI</span>
               </label>
-              <input type="file" id="midiFileInput" accept=".mid,.midi,.mp4,video/mp4" multiple hidden>
+              <input type="file" id="midiFileInput" accept=".mid,.midi,.mp4,.musicxml,.xml,.mxl,video/mp4,application/vnd.recordare.musicxml+xml" multiple hidden>
               <select id="folderMidiSelect" class="partition-select" aria-label="Morceaux du dossier sélectionné" hidden>
                 <option value="">Choisir un morceau du dossier</option>
               </select>
@@ -2499,7 +2557,7 @@ html[data-theme="night"] .key.black { color:#f8fafc; background:linear-gradient(
               <label data-i="tempo">Tempo</label>
               <div class="tempo-slider-wrap">
                 <input type="range" id="partitionTempoInput" min="1" max="240" value="100" step="1">
-                <span class="tempo-val" id="partitionTempoVal">100 BPM</span>
+                <span class="tempo-values"><span class="tempo-val" id="partitionTempoVal">100 BPM</span><small class="tempo-origin" id="partitionOriginalTempo">Orig. 100 BPM</small></span>
               </div>
             </div>
 
@@ -2547,8 +2605,18 @@ html[data-theme="night"] .key.black { color:#f8fafc; background:linear-gradient(
       </div>
 
       <div class="stage">
+        <div class="musicxml-score" id="musicXmlScore" hidden>
+          <div class="musicxml-systems" id="musicXmlSystems"></div>
+          <div class="musicxml-loading" id="musicXmlLoading" hidden><span></span><b>Préparation de la partition…</b></div>
+          <div class="musicxml-score-status" id="musicXmlScoreStatus"></div>
+        </div>
         <svg id="staff" viewBox="0 0 1000 210" role="img" aria-label="portée"></svg>
       </div>
+
+      <section class="partition-piano-panel" id="partitionPianoPanel" hidden aria-label="Piano virtuel">
+        <div class="partition-piano-caption"><b id="partitionPianoTitle">Piano virtuel</b><small id="partitionPianoHint">Les touches attendues sont indiquées en couleur</small></div>
+        <div class="partition-piano-scroll"><div class="partition-piano" id="partitionPiano"></div></div>
+      </section>
 
       <div class="question-row">
         <p class="question" id="question" hidden></p>
@@ -3081,7 +3149,7 @@ globalThis.LectureAdlMidiFactory=createADLMIDI;
       backToMenu: "Retour au menu",
       exerciseMode: "Séries (10 notes)",
       partitionMode: "Partition défilante (MIDI)",
-      loadMidi: "Charger MIDI + MP4",
+      loadMidi: "Charger morceau",
       noRecentMidi: "Aucun morceau récent",
       noPiece: "Aucun morceau",
       staves: "Portées",
@@ -3117,7 +3185,7 @@ globalThis.LectureAdlMidiFactory=createADLMIDI;
       metronomeOff: "Métronome désactivé",
       enterFullscreen: "Afficher en plein écran",
       exitFullscreen: "Quitter le plein écran",
-      loadMidiTitle: "Sélectionner ensemble le MIDI et son MP4 de même nom",
+      loadMidiTitle: "Sélectionner ensemble le MIDI, le MP4 et le MusicXML de même nom",
       folderMidiPrompt: "Choisir un morceau parmi les fichiers sélectionnés",
       folderMidiLabel: "Morceaux MIDI sélectionnés",
       folderMidiFound: "Sélection chargée : {count} morceaux MIDI. Choisissez un morceau.",
@@ -3280,7 +3348,7 @@ globalThis.LectureAdlMidiFactory=createADLMIDI;
       backToMenu: "Back to menu",
       exerciseMode: "Batches (10 notes)",
       partitionMode: "Scrolling score (MIDI)",
-      loadMidi: "Load MIDI + MP4",
+      loadMidi: "Load piece",
       noRecentMidi: "No recent pieces",
       noPiece: "No piece loaded",
       staves: "Staves",
@@ -3316,7 +3384,7 @@ globalThis.LectureAdlMidiFactory=createADLMIDI;
       metronomeOff: "Metronome off",
       enterFullscreen: "Enter full screen",
       exitFullscreen: "Exit full screen",
-      loadMidiTitle: "Select the MIDI and its matching MP4 together",
+      loadMidiTitle: "Select the matching MIDI, MP4 and MusicXML together",
       folderMidiPrompt: "Choose a piece from the selected files",
       folderMidiLabel: "Selected MIDI pieces",
       folderMidiFound: "Selection loaded: {count} MIDI pieces. Choose a piece.",
@@ -3707,6 +3775,8 @@ globalThis.LectureAdlMidiFactory=createADLMIDI;
     const useVideoSound = p.videoActive && p.audioSource === "video";
     p.soundEnabled = !useVideoSound;
     partitionVideo.muted = !useVideoSound;
+    partitionVideo.defaultMuted = !useVideoSound;
+    partitionVideo.volume = 1;
     partitionSoundIcon.textContent = useVideoSound ? "VIDÉO" : "MIDI";
     partitionSoundBtn.classList.toggle("video-source", useVideoSound);
     partitionSoundBtn.disabled = !p.videoActive;
@@ -5571,6 +5641,7 @@ globalThis.LectureAdlMidiFactory=createADLMIDI;
   const exerciseFullscreenBtn = document.getElementById("exerciseFullscreenBtn");
   const partitionTempoInput = document.getElementById("partitionTempoInput");
   const partitionTempoVal = document.getElementById("partitionTempoVal");
+  const partitionOriginalTempo = document.getElementById("partitionOriginalTempo");
   const partitionModeSeg = document.getElementById("partitionModeSeg");
   const partitionTimelineInput = document.getElementById("partitionTimelineInput");
   const partitionTimelineLabel = document.getElementById("partitionTimelineLabel");
@@ -6427,7 +6498,10 @@ globalThis.LectureAdlMidiFactory=createADLMIDI;
 
   // Rendu complet de la partition défilante
   function renderPartitionStaff() {
-    if (state.partition.videoExpanded) { renderCompactPartitionStaff(); return; }
+    if (state.partition.videoExpanded) { musicXmlScoreEl.hidden = true; partitionPianoPanel.hidden = true; svg.removeAttribute("hidden"); renderCompactPartitionStaff(); return; }
+    if (state.partition.musicXmlActive && musicXmlRenderer?.active) { refreshMusicXmlDisplay(); return; }
+    musicXmlScoreEl.hidden = true; partitionPianoPanel.hidden = state.appMode !== "partition"; svg.removeAttribute("hidden");
+    updatePartitionPianoFromMidi();
     clearSvg();
     const p = state.partition;
     const layout = getPartitionLayout();
@@ -6507,6 +6581,10 @@ globalThis.LectureAdlMidiFactory=createADLMIDI;
     return Boolean(file && /\.(mid|midi)$/i.test(file.name));
   }
 
+  function isMusicXmlFile(file) {
+    return Boolean(file && /\.(musicxml|xml|mxl)$/i.test(file.name));
+  }
+
   function isMp4File(file) {
     return Boolean(file && (/\.mp4$/i.test(file.name) || file.type === "video/mp4"));
   }
@@ -6527,9 +6605,24 @@ globalThis.LectureAdlMidiFactory=createADLMIDI;
     return matches.find(file => fileRelativeDirectory(file) === midiDirectory) || matches[0];
   }
 
+  function findMatchingMusicXmlFile(midiFile, files) {
+    if (!midiFile) return null;
+    const midiName = mediaBaseName(midiFile.name);
+    const matches = Array.from(files || []).filter(file => isMusicXmlFile(file)
+      && mediaBaseName(file.name) === midiName);
+    if (!matches.length) return null;
+    const midiDirectory = fileRelativeDirectory(midiFile);
+    return matches.find(file => fileRelativeDirectory(file) === midiDirectory) || matches[0];
+  }
+
   function partitionVideoTimeForBeat(beat) {
     const baseBpm = Math.max(1, Number(state.partition.baseBpm) || 100);
     return Math.max(0, Number(beat) || 0) * 60 / baseBpm;
+  }
+
+  function partitionUsesVideoAudio() {
+    const p = state.partition;
+    return Boolean(p.videoActive && p.audioSource === "video");
   }
 
   function syncPartitionVideo(forceSeek = false) {
@@ -6539,8 +6632,14 @@ globalThis.LectureAdlMidiFactory=createADLMIDI;
     const targetTime = partitionVideoTimeForBeat(p.currentBeat);
     const duration = Number.isFinite(partitionVideo.duration) ? partitionVideo.duration : Infinity;
     const safeTime = Math.max(0, Math.min(targetTime, duration));
-    if (forceSeek || !Number.isFinite(partitionVideo.currentTime)
-        || Math.abs(partitionVideo.currentTime - safeTime) > 0.16) {
+    const drift = Number.isFinite(partitionVideo.currentTime)
+      ? Math.abs(partitionVideo.currentTime - safeTime)
+      : Infinity;
+    const shouldPlay = p.isPlaying && !p.waitingLoopRestart && !p.videoWaiting;
+    // Pendant la lecture, une petite dérive se corrige naturellement. Les recherches
+    // répétées à chaque clic ou image sont la cause principale des vidéos figées.
+    if (partitionVideo.readyState >= 1
+        && (forceSeek || drift > (shouldPlay ? 0.45 : 0.12))) {
       try { partitionVideo.currentTime = safeTime; } catch (error) {}
     }
 
@@ -6548,9 +6647,9 @@ globalThis.LectureAdlMidiFactory=createADLMIDI;
       (Number(p.bpm) || 100) / Math.max(1, Number(p.baseBpm) || 100)));
     try { partitionVideo.playbackRate = playbackRate; } catch (error) {}
 
-    const shouldPlay = p.isPlaying && !p.waitingLoopRestart && !p.videoWaiting;
     if (shouldPlay && partitionVideo.paused) {
-      partitionVideo.play().catch(() => {});
+      const request = partitionVideo.play();
+      if (request && typeof request.catch === "function") request.catch(() => {});
     } else if (!shouldPlay && !partitionVideo.paused) {
       partitionVideo.pause();
     }
@@ -6583,6 +6682,7 @@ globalThis.LectureAdlMidiFactory=createADLMIDI;
     p.videoVisible = nextVisible;
     updatePartitionVideoVisibility();
     updatePartitionVideoToggleUI();
+    refreshMusicXmlDisplay();
     if (p.videoVisible) {
       requestAnimationFrame(fitPartitionVideoFully);
       syncPartitionVideo(true);
@@ -6729,10 +6829,33 @@ globalThis.LectureAdlMidiFactory=createADLMIDI;
     }
   }
 
+  function getPartitionMeasureRanges() {
+    const p = state.partition;
+    if (p.musicXmlActive && musicXmlRenderer?.active) {
+      const engraved = musicXmlRenderer.getMeasureRanges?.() || [];
+      if (engraved.length) return engraved;
+    }
+    const beatsPerMeasure = Math.max(1, Number(p.timeSignature.num) || 4);
+    const measureCount = Math.max(1, Math.ceil(p.totalBeats / beatsPerMeasure));
+    return Array.from({ length: measureCount }, (_, index) => ({
+      index: index + 1,
+      label: String(index + 1),
+      startBeat: index * beatsPerMeasure,
+      endBeat: Math.min(p.totalBeats, (index + 1) * beatsPerMeasure)
+    }));
+  }
+
+  function partitionMeasureIndexAtBeat(beat, ranges = getPartitionMeasureRanges()) {
+    if (!ranges.length) return 0;
+    const value = Math.max(0, Number(beat) || 0);
+    const index = ranges.findIndex(range => value < range.endBeat - 1e-6);
+    return index < 0 ? ranges.length - 1 : index;
+  }
+
   function updatePartitionLoopControls(resetRange = false) {
     const p = state.partition;
-    const beatsPerMeasure = p.timeSignature.num || 4;
-    const measureCount = Math.max(1, Math.ceil(p.totalBeats / beatsPerMeasure));
+    const ranges = getPartitionMeasureRanges();
+    const measureCount = Math.max(1, ranges.length);
     partitionLoopStartMeasure.max = String(measureCount);
     partitionLoopEndMeasure.max = String(measureCount);
 
@@ -6745,8 +6868,8 @@ globalThis.LectureAdlMidiFactory=createADLMIDI;
     if (p.loopSelectionExact && !resetRange) {
       p.loopStartBeat = Math.max(0, Math.min(p.totalBeats, p.loopStartBeat));
       p.loopEndBeat = Math.max(p.loopStartBeat + 0.125, Math.min(p.totalBeats, p.loopEndBeat));
-      const startMeasure = Math.min(measureCount, Math.floor(p.loopStartBeat / beatsPerMeasure) + 1);
-      const endMeasure = Math.min(measureCount, Math.floor(Math.max(0, p.loopEndBeat - 0.001) / beatsPerMeasure) + 1);
+      const startMeasure = partitionMeasureIndexAtBeat(p.loopStartBeat, ranges) + 1;
+      const endMeasure = partitionMeasureIndexAtBeat(Math.max(0, p.loopEndBeat - 0.001), ranges) + 1;
       partitionLoopStartMeasure.value = String(startMeasure);
       partitionLoopEndMeasure.value = String(Math.max(startMeasure, endMeasure));
       partitionLoopInfo.textContent = t("directSelection")
@@ -6759,8 +6882,12 @@ globalThis.LectureAdlMidiFactory=createADLMIDI;
     const endMeasure = Math.max(startMeasure, Math.min(measureCount, Number(partitionLoopEndMeasure.value) || measureCount));
     partitionLoopStartMeasure.value = String(startMeasure);
     partitionLoopEndMeasure.value = String(endMeasure);
-    p.loopStartBeat = (startMeasure - 1) * beatsPerMeasure;
-    p.loopEndBeat = Math.min(p.totalBeats, endMeasure * beatsPerMeasure);
+    const startRange = ranges[startMeasure - 1] || ranges[0];
+    const endRange = ranges[endMeasure - 1] || ranges[ranges.length - 1];
+    p.loopStartBeat = Math.max(0, startRange.startBeat);
+    p.loopEndBeat = Math.max(p.loopStartBeat + 0.125, Math.min(p.totalBeats, endRange.endBeat));
+    partitionLoopStartMeasure.title = (state.lang === "en" ? "Score measure " : "Mesure de la partition ") + (startRange.label || startMeasure);
+    partitionLoopEndMeasure.title = (state.lang === "en" ? "Score measure " : "Mesure de la partition ") + (endRange.label || endMeasure);
     partitionLoopInfo.textContent = t("loopMeasures")
       .replace("{start}", startMeasure)
       .replace("{end}", endMeasure);
@@ -6976,6 +7103,7 @@ globalThis.LectureAdlMidiFactory=createADLMIDI;
 
   function startPartition() {
     if (state.partition.isPlaying || partitionAudioStartPending) return;
+    if (partitionUsesVideoAudio()) { startPartitionReady(); return; }
     if (!adlAudio?.ready && !adlAudioFailed) {
       const request = ++partitionAudioStartRequest;
       partitionAudioStartPending = true;
@@ -7007,7 +7135,7 @@ globalThis.LectureAdlMidiFactory=createADLMIDI;
     p.videoWaiting = false;
     p.lastTimestamp = null;
     resetPartitionSound();
-    if (p.scrollMode === "continuous") {
+    if (p.scrollMode === "continuous" && p.soundEnabled) {
       getPartitionAudioClock();
       checkPartitionSound();
     }
@@ -7097,8 +7225,12 @@ globalThis.LectureAdlMidiFactory=createADLMIDI;
     const advance = deltaSec * beatsPerSec;
     let nextBeat = p.currentBeat + advance;
     if (p.scrollMode === "continuous") {
-      const clock = getPartitionAudioClock();
-      nextBeat = clock.beat + Math.max(0, getAudioCtx().currentTime - clock.time) * beatsPerSec;
+      if (partitionUsesVideoAudio() && Number.isFinite(partitionVideo.currentTime)) {
+        nextBeat = partitionVideo.currentTime * Math.max(1, Number(p.baseBpm) || 100) / 60;
+      } else {
+        const clock = getPartitionAudioClock();
+        nextBeat = clock.beat + Math.max(0, getAudioCtx().currentTime - clock.time) * beatsPerSec;
+      }
     }
     const playbackEnd = p.isLooping ? p.loopEndBeat : p.totalBeats;
     p.videoWaiting = false;
@@ -7121,7 +7253,7 @@ globalThis.LectureAdlMidiFactory=createADLMIDI;
     checkPartitionMetronome(previousBeat, p.currentBeat);
 
     // Le mode défi ne joue pas la réponse avant l'utilisateur.
-    if (p.scrollMode === "continuous") checkPartitionSound();
+    if (p.scrollMode === "continuous" && p.soundEnabled) checkPartitionSound();
 
     if (p.currentBeat >= playbackEnd) {
       p.currentBeat = playbackEnd;
@@ -7129,6 +7261,7 @@ globalThis.LectureAdlMidiFactory=createADLMIDI;
         schedulePartitionLoopRestart();
         return;
       } else {
+        p.currentBeat = 0;
         pausePartition();
         questionEl.textContent = t("pieceFinished");
       }
@@ -7266,6 +7399,7 @@ globalThis.LectureAdlMidiFactory=createADLMIDI;
     const p = state.partition;
     partitionTempoInput.value = p.bpm;
     partitionTempoVal.textContent = p.bpm + " BPM";
+    partitionOriginalTempo.textContent = "Orig. " + Math.round(Math.max(1, Number(p.baseBpm) || 100)) + " BPM";
     setPartitionPlayButtonLabel(p.isPlaying ? "pause" : "play");
     partitionPieceInfo.textContent = p.fileName || t("noPiece");
 
@@ -7307,8 +7441,11 @@ globalThis.LectureAdlMidiFactory=createADLMIDI;
     const elapsedSeconds = Math.max(0, p.currentBeat) * 60 / bpm;
     const durationSeconds = Math.max(0, p.totalBeats) * 60 / bpm;
     partitionTimelineTime.textContent = `${formatPartitionTime(elapsedSeconds)} / ${formatPartitionTime(durationSeconds)}`;
-    const mNum = Math.floor(p.currentBeat / p.timeSignature.num) + 1;
-    const bInM = (mod(p.currentBeat, p.timeSignature.num) + 1).toFixed(1);
+    const measureRanges = getPartitionMeasureRanges();
+    const measureIndex = partitionMeasureIndexAtBeat(p.currentBeat, measureRanges);
+    const currentMeasure = measureRanges[measureIndex] || { startBeat: 0, label: measureIndex + 1 };
+    const mNum = currentMeasure.label || measureIndex + 1;
+    const bInM = (Math.max(0, p.currentBeat - currentMeasure.startBeat) + 1).toFixed(1);
     partitionTimelineLabel.textContent = t("measureBeat")
       .replace("{measure}", mNum)
       .replace("{beat}", bInM);
@@ -7356,6 +7493,7 @@ globalThis.LectureAdlMidiFactory=createADLMIDI;
 
   function showAppHome() {
     pausePartition();
+    document.body.classList.remove("partition-score-layout");
     if (state.partition.videoExpanded) setPartitionVideoExpanded(false);
     if (state.voiceShouldListen) stopVoiceRecognition();
     state.appMode = "home";
@@ -7372,6 +7510,7 @@ globalThis.LectureAdlMidiFactory=createADLMIDI;
     prepareLiveMidiAudio();
     ensureMidiInitialized();
     state.appMode = mode;
+    document.body.classList.toggle("partition-score-layout", mode === "partition");
     appHome.hidden = true;
     appWorkspace.hidden = false;
     homeMenuBtn.hidden = false;
@@ -7384,6 +7523,9 @@ globalThis.LectureAdlMidiFactory=createADLMIDI;
       if (state.partition.videoExpanded) setPartitionVideoExpanded(false);
       state.partition.videoVisible = false;
       updatePartitionVideoVisibility();
+      musicXmlScoreEl.hidden = true;
+      partitionPianoPanel.hidden = true;
+      svg.removeAttribute("hidden");
       svg.classList.remove("partition-selectable");
       svg.setAttribute("aria-label", t("staffLabel"));
       exerciseControlsWrap.hidden = false;
@@ -7400,6 +7542,8 @@ globalThis.LectureAdlMidiFactory=createADLMIDI;
       exerciseControlsWrap.hidden = true;
       partitionControlsWrap.hidden = false;
       partitionLanguageWrap.hidden = false;
+      refreshMusicXmlDisplay();
+      loadSelectedProjectLibraryPiece();
       keyboardWrapEl.hidden = true;
       namePadEl.hidden = true;
       voicePanelEl.hidden = true;
@@ -7459,8 +7603,13 @@ globalThis.LectureAdlMidiFactory=createADLMIDI;
     p.audioSource = p.audioSource === "video" ? "midi" : "video";
     p.soundEnabled = p.audioSource === "midi";
     resetPartitionSound();
+    p.lastTimestamp = null;
     updatePartitionToggleIcons();
-    syncPartitionVideo(true);
+    syncPartitionVideo(false);
+    if (p.isPlaying && p.soundEnabled && p.scrollMode === "continuous") {
+      getPartitionAudioClock();
+      checkPartitionSound();
+    }
   });
 
   partitionMetronomeBtn.addEventListener("click", () => {
@@ -7484,6 +7633,7 @@ globalThis.LectureAdlMidiFactory=createADLMIDI;
     state.partition.lastTimestamp = null;
     partitionTempoInput.value = bpm;
     partitionTempoVal.textContent = bpm + " BPM";
+    partitionOriginalTempo.textContent = "Orig. " + Math.round(Math.max(1, Number(state.partition.baseBpm) || 100)) + " BPM";
     batchStatusEl.textContent = bpm + " BPM";
     syncPartitionVideo();
   }
@@ -7499,11 +7649,13 @@ globalThis.LectureAdlMidiFactory=createADLMIDI;
       resetPartitionSound();
       state.partition.lastTimestamp = null;
       partitionModeSeg.querySelectorAll("button").forEach(b => b.classList.toggle("on", b === btn));
-      syncPartitionVideo(true);
+      syncPartitionVideo(false);
     });
   });
 
   [partitionLoopStartMeasure, partitionLoopEndMeasure].forEach(input => {
+    input.addEventListener("focus", () => input.select());
+    input.addEventListener("keydown", event => { if (event.key === "Enter") input.blur(); });
     input.addEventListener("change", () => {
       state.partition.loopSelectionExact = false;
       updatePartitionLoopControls();
@@ -7593,7 +7745,7 @@ globalThis.LectureAdlMidiFactory=createADLMIDI;
   const LAST_MIDI_FALLBACK_KEY = "lecture-notes-last-midi";
 
   function midiNameWithoutExtension(fileName) {
-    return String(fileName || "Morceau MIDI").replace(/\.(mid|midi)$/i, "");
+    return String(fileName || "Morceau").replace(/\.(mid|midi|musicxml|xml|mxl)$/i, "");
   }
 
   function showCurrentMidiName(fileName) {
@@ -7832,9 +7984,10 @@ globalThis.LectureAdlMidiFactory=createADLMIDI;
   }
 
   // Chargement de fichier MIDI
-  function handleMidiFile(file, videoFile = null, source = "local") {
+  function handleMidiFile(file, videoFile = null, source = "local", musicXmlFile = null) {
     if (!file) return;
     localFileLoadedThisSession = source !== "library";
+    deactivateMusicXmlScore();
     const reader = new FileReader();
     reader.onload = (e) => {
       try {
@@ -7843,6 +7996,7 @@ globalThis.LectureAdlMidiFactory=createADLMIDI;
         if (videoFile && videoFile.url) activatePartitionVideoUrl(videoFile.url, videoFile.name);
         else if (videoFile) activatePartitionVideo(videoFile);
         else deactivatePartitionVideo();
+        if (musicXmlFile) activateMusicXmlScore(musicXmlFile.url || musicXmlFile, musicXmlFile.name || musicXmlFile.fileName);
         persistLastMidiFile(e.target.result, file.name)
           .then(() => refreshRecentMidiSelect(file.name));
         feedbackEl.className = "feedback good";
@@ -7857,11 +8011,38 @@ globalThis.LectureAdlMidiFactory=createADLMIDI;
     reader.readAsArrayBuffer(file);
   }
 
+  async function handleMusicXmlFile(file, videoFile = null) {
+    if (!file) return false;
+    localFileLoadedThisSession = true;
+    pausePartition();
+    deactivateMusicXmlScore();
+    if (videoFile) activatePartitionVideo(videoFile);
+    else deactivatePartitionVideo();
+    const loaded = await activateMusicXmlScore(file, file.name, false);
+    if (!loaded) return false;
+    const p = state.partition;
+    if (videoFile) {
+      p.audioSource = "video";
+      p.soundEnabled = false;
+    } else {
+      p.audioSource = "midi";
+      p.soundEnabled = true;
+    }
+    updatePartitionToggleIcons();
+    showCurrentMidiName(file.name);
+    rewindPartition();
+    feedbackEl.className = "feedback good";
+    feedbackEl.textContent = state.lang === "en"
+      ? "MusicXML score" + (videoFile ? " and MP4 video" : "") + " loaded."
+      : "Partition MusicXML" + (videoFile ? " et vidéo MP4" : "") + " chargée.";
+    return true;
+  }
+
   function folderMidiDisplayName(file) {
     const relativePath = String(file.webkitRelativePath || "").replace(/\\/g, "/");
     const pathParts = relativePath.split("/").filter(Boolean);
     const displayPath = pathParts.length > 1 ? pathParts.slice(1).join("/") : file.name;
-    return displayPath.replace(/\.(mid|midi)$/i, "");
+    return displayPath.replace(/\.(mid|midi|musicxml|xml|mxl)$/i, "");
   }
 
   function showFolderMidiChoices(files) {
@@ -7875,7 +8056,8 @@ globalThis.LectureAdlMidiFactory=createADLMIDI;
     state.partition.folderMidiPairs = midiFiles.map((midiFile, index) => ({
       id: String(index),
       midiFile,
-      videoFile: findMatchingVideoFile(midiFile, allFiles)
+      videoFile: findMatchingVideoFile(midiFile, allFiles),
+      musicXmlFile: findMatchingMusicXmlFile(midiFile, allFiles)
     }));
 
     folderMidiSelect.innerHTML = "";
@@ -7896,7 +8078,9 @@ globalThis.LectureAdlMidiFactory=createADLMIDI;
       folderMidiSelect.value = "0";
       handleMidiFile(
         state.partition.folderMidiPairs[0].midiFile,
-        state.partition.folderMidiPairs[0].videoFile
+        state.partition.folderMidiPairs[0].videoFile,
+        "local",
+        state.partition.folderMidiPairs[0].musicXmlFile
       );
     } else if (midiFiles.length > 1) {
       feedbackEl.className = "feedback good";
@@ -7905,10 +8089,51 @@ globalThis.LectureAdlMidiFactory=createADLMIDI;
     return midiFiles.length;
   }
 
+  function showFolderMusicXmlChoices(files) {
+    const allFiles = Array.from(files || []);
+    const scoreFiles = allFiles.filter(isMusicXmlFile).sort((left, right) =>
+      folderMidiDisplayName(left).localeCompare(folderMidiDisplayName(right), state.lang === "fr" ? "fr" : "en", { sensitivity: "base" })
+    );
+    state.partition.folderMidiPairs = scoreFiles.map((musicXmlFile, index) => ({
+      id: "score-" + index,
+      musicXmlFile,
+      videoFile: findMatchingVideoFile(musicXmlFile, allFiles)
+    }));
+    folderMidiSelect.innerHTML = "";
+    const promptOption = document.createElement("option");
+    promptOption.value = "";
+    promptOption.textContent = t("folderMidiPrompt");
+    folderMidiSelect.appendChild(promptOption);
+    state.partition.folderMidiPairs.forEach(pair => {
+      const option = document.createElement("option");
+      option.value = pair.id;
+      option.textContent = folderMidiDisplayName(pair.musicXmlFile);
+      folderMidiSelect.appendChild(option);
+    });
+    folderMidiSelect.hidden = scoreFiles.length === 0;
+    if (scoreFiles.length === 1) {
+      folderMidiSelect.value = state.partition.folderMidiPairs[0].id;
+      handleMusicXmlFile(state.partition.folderMidiPairs[0].musicXmlFile, state.partition.folderMidiPairs[0].videoFile);
+    } else if (scoreFiles.length > 1) {
+      feedbackEl.className = "feedback good";
+      feedbackEl.textContent = (state.lang === "en" ? "Selection loaded: " : "Sélection chargée : ")
+        + scoreFiles.length + (state.lang === "en" ? " MusicXML scores." : " partitions MusicXML.");
+    }
+    return scoreFiles.length;
+  }
+
   function handleSelectedMidiFiles(files) {
     const allFiles = Array.from(files || []);
     const midiFiles = allFiles.filter(isMidiFile);
-    if (!midiFiles.length) return false;
+    const musicXmlFiles = allFiles.filter(isMusicXmlFile);
+    if (!midiFiles.length) {
+      if (!musicXmlFiles.length) return false;
+      const isFolderSelection = musicXmlFiles.length > 1
+        || allFiles.some(file => Boolean(file.webkitRelativePath));
+      if (isFolderSelection) showFolderMusicXmlChoices(allFiles);
+      else handleMusicXmlFile(musicXmlFiles[0], findMatchingVideoFile(musicXmlFiles[0], allFiles));
+      return true;
+    }
 
     const isFolderSelection = midiFiles.length > 1
       || allFiles.some(file => Boolean(file.webkitRelativePath));
@@ -7916,7 +8141,7 @@ globalThis.LectureAdlMidiFactory=createADLMIDI;
       showFolderMidiChoices(allFiles);
     } else {
       const midiFile = midiFiles[0];
-      handleMidiFile(midiFile, findMatchingVideoFile(midiFile, allFiles));
+      handleMidiFile(midiFile, findMatchingVideoFile(midiFile, allFiles), "local", findMatchingMusicXmlFile(midiFile, allFiles));
     }
     return true;
   }
@@ -7929,7 +8154,8 @@ globalThis.LectureAdlMidiFactory=createADLMIDI;
 
   folderMidiSelect.addEventListener("change", () => {
     const pair = state.partition.folderMidiPairs.find(item => item.id === folderMidiSelect.value);
-    if (pair) handleMidiFile(pair.midiFile, pair.videoFile);
+    if (pair?.midiFile) handleMidiFile(pair.midiFile, pair.videoFile, "local", pair.musicXmlFile);
+    else if (pair?.musicXmlFile) handleMusicXmlFile(pair.musicXmlFile, pair.videoFile);
   });
 
   // Glisser-déposer de fichier MIDI
@@ -7945,7 +8171,7 @@ globalThis.LectureAdlMidiFactory=createADLMIDI;
     e.preventDefault();
     cardEl.classList.remove("dragover");
     const files = Array.from(e.dataTransfer.files || []);
-    if (files.some(isMidiFile)) {
+    if (files.some(file => isMidiFile(file) || isMusicXmlFile(file))) {
       if (state.appMode !== "partition") setAppMode("partition");
       handleSelectedMidiFiles(files);
     }
@@ -8465,6 +8691,8 @@ globalThis.LectureAdlMidiFactory=createADLMIDI;
     updatePartitionUI();
     updatePartitionTimelineUI();
     updatePartitionFullscreenButton();
+    if (partitionPianoTitle) partitionPianoTitle.textContent = state.lang === "en" ? "Virtual piano" : "Piano virtuel";
+    if (partitionPianoHint) partitionPianoHint.textContent = state.lang === "en" ? "Expected keys are highlighted" : "Les touches attendues sont indiquées en couleur";
   }
 
   function updateCustomNotesUI() {
@@ -8531,6 +8759,7 @@ globalThis.LectureAdlMidiFactory=createADLMIDI;
     applyI18n();
     updateNewHomeLanguage();
     buildKeyboard();
+    buildPartitionPiano();
     buildNamePad();
     if (state.appMode === "partition") {
       renderPartitionStaff();
@@ -8723,11 +8952,24 @@ globalThis.LectureAdlMidiFactory=createADLMIDI;
       const videoFile = piece.video
         ? { url: new URL(piece.video, projectMediaLibraryBase).href, name: projectLibraryFileName(piece.video, piece.id + ".mp4") }
         : null;
-      handleMidiFile(midiFile, videoFile, "library");
+      const musicXmlFile = piece.score
+        ? { url: new URL(piece.score, projectMediaLibraryBase).href, name: projectLibraryFileName(piece.score, piece.id + ".musicxml") }
+        : null;
+      handleMidiFile(midiFile, videoFile, "library", musicXmlFile);
     } catch (error) {
       feedbackEl.className = "feedback bad";
       feedbackEl.textContent = state.lang === "en" ? "Unable to load this library piece." : "Impossible de charger ce morceau de la bibliothèque.";
     }
+  }
+  async function loadSelectedProjectLibraryPiece() {
+    const value = String(recentMidiSelect.value || "");
+    if (!value.startsWith("project-library:") || state.partition.musicXmlActive) return false;
+    const libraryId = value.replace(/^project-library:/, "");
+    const piece = state.partition.projectLibraryPieces.find(item => item.id === libraryId);
+    if (!piece) return false;
+    projectLibraryActive = true;
+    await loadProjectLibraryPiece(piece);
+    return true;
   }
   function movePartitionLoadControl(withPlaybackControls) {
     if (!partitionLoadField || !partitionPrimaryRowForLoad || !partitionPlaybackRowForLoad) return;
@@ -8997,6 +9239,191 @@ globalThis.LectureAdlMidiFactory=createADLMIDI;
   if (window.ResizeObserver) {
     new ResizeObserver(fitPartitionVideoFully).observe(partitionVideoWrap);
   }
+
+
+  const musicXmlScoreEl = document.getElementById("musicXmlScore");
+  const musicXmlSystemsEl = document.getElementById("musicXmlSystems");
+  const musicXmlLoadingEl = document.getElementById("musicXmlLoading");
+  const musicXmlScoreStatusEl = document.getElementById("musicXmlScoreStatus");
+  const partitionPianoPanel = document.getElementById("partitionPianoPanel");
+  const partitionPianoEl = document.getElementById("partitionPiano");
+  const partitionPianoTitle = document.getElementById("partitionPianoTitle");
+  const partitionPianoHint = document.getElementById("partitionPianoHint");
+  let musicXmlRenderer = null;
+  let musicXmlRendererPromise = null;
+  let musicXmlExpectedPitches = new Set();
+  state.partition.musicXmlActive = false;
+  state.partition.musicXmlFileName = "";
+
+  function partitionPianoNoteName(midi) {
+    const names = state.lang === "en"
+      ? ["C","C♯","D","D♯","E","F","F♯","G","G♯","A","A♯","B"]
+      : ["Do","Do♯","Ré","Ré♯","Mi","Fa","Fa♯","Sol","Sol♯","La","La♯","Si"];
+    return names[midi % 12] + (Math.floor(midi / 12) - 1);
+  }
+
+  function buildPartitionPiano() {
+    partitionPianoEl.replaceChildren();
+    let whiteCount = 0;
+    for (let midi = 21; midi <= 108; midi++) {
+      const isBlack = [1,3,6,8,10].includes(midi % 12);
+      const left = isBlack ? whiteCount * 30 - 9.5 : whiteCount++ * 30;
+      const key = document.createElement("button");
+      key.type = "button";
+      key.className = "partition-piano-key " + (isBlack ? "black" : "white");
+      key.dataset.midi = String(midi);
+      key.style.left = left + "px";
+      key.title = partitionPianoNoteName(midi);
+      if (midi % 12 === 0) {
+        const octave = document.createElement("span");
+        octave.className = "octave-label";
+        octave.textContent = partitionPianoNoteName(midi);
+        key.append(octave);
+      }
+      key.addEventListener("pointerdown", event => {
+        event.preventDefault();
+        key.classList.add("pressed");
+        playMidi(midi, .8, { velocity: 92, group: "partition-piano" });
+        handlePartitionInput(midi);
+      });
+      const release = () => key.classList.remove("pressed");
+      key.addEventListener("pointerup", release);
+      key.addEventListener("pointercancel", release);
+      key.addEventListener("pointerleave", release);
+      partitionPianoEl.append(key);
+    }
+    partitionPianoEl.style.width = (whiteCount * 30) + "px";
+    updatePartitionPiano(musicXmlExpectedPitches);
+  }
+
+  function updatePartitionPiano(pitches) {
+    musicXmlExpectedPitches = new Set(Array.from(pitches || []).map(Number));
+    partitionPianoEl.querySelectorAll(".partition-note-label").forEach(label => label.remove());
+    partitionPianoEl.querySelectorAll(".partition-piano-key").forEach(key => {
+      const midi = Number(key.dataset.midi);
+      const expected = musicXmlExpectedPitches.has(midi);
+      key.classList.toggle("expected", expected);
+      key.title = partitionPianoNoteName(midi);
+      const octave = key.querySelector(".octave-label");
+      if (octave) octave.textContent = partitionPianoNoteName(midi);
+      if (!expected) return;
+      const label = document.createElement("span");
+      label.className = "partition-note-label";
+      label.textContent = partitionPianoNoteName(midi);
+      label.style.left = (parseFloat(key.style.left) + (key.classList.contains("black") ? 9.5 : 15)) + "px";
+      partitionPianoEl.append(label);
+    });
+  }
+
+  function updatePartitionPianoFromMidi() {
+    const notes = Array.isArray(state.partition.notes) ? state.partition.notes : [];
+    if (!notes.length) { updatePartitionPiano([]); return; }
+    const currentBeat = Number(state.partition.currentBeat) || 0;
+    const active = notes.filter(note => note.beat <= currentBeat + .04
+      && currentBeat < note.beat + Math.max(.08, note.durationBeats || .25));
+    if (active.length) { updatePartitionPiano(active.map(note => note.midi)); return; }
+    const next = notes.find(note => note.beat >= currentBeat - .02);
+    updatePartitionPiano(next ? notes.filter(note => Math.abs(note.beat - next.beat) < .02).map(note => note.midi) : []);
+  }
+
+  async function ensureMusicXmlRenderer() {
+    if (musicXmlRenderer) return musicXmlRenderer;
+    if (!musicXmlRendererPromise) {
+      musicXmlRendererPromise = import("./musicxml-score.mjs?v=20261017.12").then(module => {
+        musicXmlRenderer = new module.MusicXmlScoreRenderer({
+          host: musicXmlScoreEl,
+          systemsHost: musicXmlSystemsEl,
+          loading: musicXmlLoadingEl,
+          status: musicXmlScoreStatusEl,
+          onExpectedNotes: updatePartitionPiano,
+          onError(error) {
+            feedbackEl.className = "feedback bad";
+            feedbackEl.textContent = (state.lang === "en" ? "MusicXML unavailable: " : "MusicXML indisponible : ") + error.message;
+          }
+        });
+        return musicXmlRenderer;
+      });
+    }
+    return musicXmlRendererPromise;
+  }
+
+  async function activateMusicXmlScore(source, fileName, useExistingMidi = true) {
+    if (!source) {
+      deactivateMusicXmlScore();
+      return false;
+    }
+    musicXmlScoreEl.hidden = false;
+    svg.setAttribute("hidden", "");
+    partitionPlayBtn.disabled = true;
+    let loaded = false;
+    try {
+      const renderer = await ensureMusicXmlRenderer();
+      loaded = await renderer.load(source, fileName);
+    } finally {
+      partitionPlayBtn.disabled = false;
+    }
+    state.partition.musicXmlActive = Boolean(loaded);
+    state.partition.musicXmlFileName = loaded ? String(fileName || "partition.musicxml") : "";
+    svg.toggleAttribute("hidden", Boolean(loaded));
+    musicXmlScoreEl.hidden = !loaded || state.appMode !== "partition";
+    partitionPianoPanel.hidden = !loaded || state.appMode !== "partition";
+    if (loaded) {
+      if (!useExistingMidi) {
+        const playback = musicXmlRenderer.getPlaybackData();
+        const p = state.partition;
+        p.fileName = String(fileName || "partition.musicxml");
+        p.bpm = playback.bpm;
+        p.baseBpm = playback.bpm;
+        p.timeSignature = playback.timeSignature;
+        p.keySignature = { sf: 0, mi: 0 };
+        p.ticksPerBeat = 480;
+        p.tracks = [];
+        p.clef = "grand";
+        p.rawNotes = playback.notes.map(note => ({ ...note }));
+        p.totalBeats = playback.totalBeats;
+        p.notes = preparePartitionNotes(p.rawNotes, p.clef, p.accidentalPref, p.keySignature.sf);
+        p.currentBeat = 0;
+        partitionTrackSelect.style.display = "none";
+        resetPartitionNotesFrom(0);
+        resetPartitionSound();
+      }
+      musicXmlRenderer.setMidiNotes(state.partition.notes, state.partition.totalBeats);
+      updatePartitionLoopControls(true);
+      updatePartitionTimelineUI();
+      musicXmlRenderer.updateBeat(state.partition.currentBeat, state.partition.bpm);
+      updatePartitionUI();
+      feedbackEl.className = "feedback good";
+      feedbackEl.textContent = state.lang === "en" ? "MuseScore MusicXML score ready." : "Partition MusicXML MuseScore prête.";
+    } else {
+      renderPartitionStaff();
+    }
+    return loaded;
+  }
+
+  function deactivateMusicXmlScore() {
+    state.partition.musicXmlActive = false;
+    state.partition.musicXmlFileName = "";
+    musicXmlRenderer?.clear();
+    musicXmlScoreEl.hidden = true;
+    partitionPianoPanel.hidden = true;
+    svg.removeAttribute("hidden");
+  }
+
+  function refreshMusicXmlDisplay() {
+    const active = state.appMode === "partition" && state.partition.musicXmlActive && musicXmlRenderer?.active;
+    const compactVideo = Boolean(state.partition.videoExpanded);
+    musicXmlScoreEl.hidden = !active || compactVideo;
+    svg.toggleAttribute("hidden", active && !compactVideo);
+    partitionPianoPanel.hidden = !active || compactVideo;
+    if (active && !compactVideo) {
+      musicXmlRenderer.updateBeat(state.partition.currentBeat, state.partition.bpm, {
+        atMeasureEnd: Boolean(state.partition.waitingLoopRestart
+          && Math.abs(state.partition.currentBeat - state.partition.loopEndBeat) <= .03)
+      });
+    }
+  }
+
+  buildPartitionPiano();
 
   // ==================== INIT ====================
 

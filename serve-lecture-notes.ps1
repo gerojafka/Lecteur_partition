@@ -1,6 +1,7 @@
 [CmdletBinding()]
 param(
-  [int]$Port = 8765
+  [int]$Port = 8765,
+  [switch]$NoBrowser
 )
 
 $root = $PSScriptRoot.TrimEnd('\')
@@ -11,7 +12,11 @@ $mimeTypes = @{
   '.html' = 'text/html; charset=utf-8'
   '.css'  = 'text/css; charset=utf-8'
   '.js'   = 'text/javascript; charset=utf-8'
+  '.mjs'  = 'text/javascript; charset=utf-8'
   '.json' = 'application/json; charset=utf-8'
+  '.xml'  = 'application/xml; charset=utf-8'
+  '.musicxml' = 'application/vnd.recordare.musicxml+xml'
+  '.mxl'  = 'application/vnd.recordare.musicxml'
   '.mid'  = 'audio/midi'
   '.midi' = 'audio/midi'
   '.mp3'  = 'audio/mpeg'
@@ -24,10 +29,10 @@ $mimeTypes = @{
 
 try {
   $listener.Start()
-  $url = "http://localhost:$Port/lecture-notes_kimi_casio.html"
+  $url = "http://localhost:$Port/lecture-notes_kimi_casio.html?v=20261017.12"
   Write-Output "Lecture Notes est disponible sur $url"
   Write-Output 'Laissez cette fenêtre ouverte pendant l’utilisation. Fermez-la avec Ctrl+C.'
-  Start-Process $url
+  if (-not $NoBrowser) { Start-Process $url }
 
   while ($listener.IsListening) {
     $context = $listener.GetContext()
@@ -42,6 +47,9 @@ try {
       }
       $extension = [System.IO.Path]::GetExtension($filePath).ToLowerInvariant()
       $context.Response.ContentType = if ($mimeTypes.ContainsKey($extension)) { $mimeTypes[$extension] } else { 'application/octet-stream' }
+      $context.Response.Headers['Cache-Control'] = 'no-store, no-cache, must-revalidate, max-age=0'
+      $context.Response.Headers['Pragma'] = 'no-cache'
+      $context.Response.Headers['Expires'] = '0'
       $stream = [System.IO.File]::OpenRead($filePath)
       try {
         $context.Response.ContentLength64 = $stream.Length
