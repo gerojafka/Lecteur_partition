@@ -3817,11 +3817,16 @@ globalThis.LectureAdlMidiFactory=createADLMIDI;
       return state.midiAccess;
     }
     if (!midiAccessRequest) {
-      try {
-        midiAccessRequest = navigator.requestMIDIAccess({ sysex: false });
-      } catch (err) {
-        midiAccessRequest = Promise.reject(err);
-      }
+      // MIDIWeb sur iPad fonctionne plus fiablement lorsque SysEx est demandé
+      // comme dans le test MIDI de référence. Si le navigateur le refuse,
+      // on conserve un repli automatique sans SysEx.
+      midiAccessRequest = (async () => {
+        try {
+          return await navigator.requestMIDIAccess({ sysex: true });
+        } catch (sysexError) {
+          return await navigator.requestMIDIAccess({ sysex: false });
+        }
+      })();
     }
     try {
       const access = await midiAccessRequest;
@@ -3848,24 +3853,89 @@ globalThis.LectureAdlMidiFactory=createADLMIDI;
   }
 
   function availableMidiInputs() {
-    if (!state.midiAccess) return [];
-    return Array.from(state.midiAccess.inputs.values())
-      .filter(input => input && input.state !== "disconnected");
+    const ports = state.midiAccess && state.midiAccess.inputs;
+    if (!ports) return [];
+    let inputs = [];
+
+    // Web MIDI standard expose une Map, mais certains ponts MIDIWeb/iOS
+    // fournissent un itérateur atypique, un tableau ou un objet indexé.
+    try {
+      if (typeof ports.values === "function") {
+        const iterator = ports.values();
+        if (iterator && typeof iterator[Symbol.iterator] === "function") {
+          inputs = Array.from(iterator);
+        } else if (iterator && typeof iterator.next === "function") {
+          let item = iterator.next();
+          while (!item.done) {
+            if (item.value) inputs.push(item.value);
+            item = iterator.next();
+          }
+        }
+      }
+    } catch (error) { /* Essayer les autres formats ci-dessous. */ }
+
+    if (!inputs.length && typeof ports.forEach === "function") {
+      try { ports.forEach(input => { if (input) inputs.push(input); }); } catch (error) {}
+    }
+    if (!inputs.length && Array.isArray(ports)) inputs = ports.filter(Boolean);
+    if (!inputs.length && typeof ports === "object") {
+      try {
+        Object.keys(ports).forEach(key => {
+          const input = ports[key];
+          if (input && typeof input === "object" && (input.name || input.id || typeof input.open === "function")) inputs.push(input);
+        });
+      } catch (error) {}
+    }
+
+    return Array.from(new Set(inputs)).filter(input => input && input.state !== "disconnected");
   }
 
-  async function connectMidiInput(input) {
+  const midiInputHandlers = new Map();
+  const seenMidiEvents = new WeakSet();
+
+  function connectMidiInput(input) {
     if (!input) return;
     if (!state.midiInputs) state.midiInputs = new Set();
     if (state.midiInputs.has(input)) return;
     state.midiInputs.add(input);
-    // Certaines implémentations Web MIDI sur iPad ne transmettent les notes
-    // qu'après l'ouverture explicite du port.
+
+    // Installer les écouteurs AVANT open(): certains ponts MIDIWeb/iOS
+    // laissent la promesse open() en attente alors que les événements arrivent.
+    const record = { handler: null, lastSignature: null, lastAt: 0 };
+    record.handler = event => {
+      // Le test MIDI de référence utilise les deux API. Éviter de traiter
+      // deux fois un même événement si les deux mécanismes le transmettent.
+      if (event && (typeof event === "object" || typeof event === "function")) {
+        if (seenMidiEvents.has(event)) return;
+        seenMidiEvents.add(event);
+      }
+      const data = event && event.data;
+      if (data && data.length >= 2) {
+        const signature = `${data[0]}:${data[1]}:${data[2] ?? 0}`;
+        const now = (typeof performance !== "undefined" && performance.now) ? performance.now() : Date.now();
+        if (record.lastSignature === signature && now - record.lastAt < 5) return;
+        record.lastSignature = signature;
+        record.lastAt = now;
+      }
+      onMidiMessage(event);
+    };
+    midiInputHandlers.set(input, record);
+
+    try { input.onmidimessage = record.handler; } catch (error) {}
     try {
-      if (typeof input.open === "function") await input.open();
-    } catch (error) {
-      // Le gestionnaire d'événements reste utile avec les ports déjà ouverts.
-    }
-    input.onmidimessage = onMidiMessage;
+      if (typeof input.addEventListener === "function") {
+        input.addEventListener("midimessage", record.handler);
+      }
+    } catch (error) {}
+
+    // Ouvrir le port sans retarder l'installation des écouteurs.
+    try {
+      if (typeof input.open === "function") {
+        const opening = input.open();
+        if (opening && typeof opening.catch === "function") opening.catch(() => {});
+      }
+    } catch (error) { /* Certains ports sont déjà ouverts ou ignorent open(). */ }
+
     state.midiInput = state.midiInput || input;
     updateMidiDot();
   }
@@ -3906,7 +3976,18 @@ globalThis.LectureAdlMidiFactory=createADLMIDI;
   function disconnectMidiInput(input = null) {
     const inputs = input ? [input] : Array.from(state.midiInputs || []);
     inputs.forEach(port => {
-      if (port) port.onmidimessage = null;
+      const record = midiInputHandlers.get(port);
+      if (record) {
+        try { if (port.onmidimessage === record.handler) port.onmidimessage = null; } catch (error) {}
+        try {
+          if (typeof port.removeEventListener === "function") {
+            port.removeEventListener("midimessage", record.handler);
+          }
+        } catch (error) {}
+        midiInputHandlers.delete(port);
+      } else if (port) {
+        try { port.onmidimessage = null; } catch (error) {}
+      }
       state.midiInputs?.delete(port);
     });
     state.midiInput = state.midiInputs?.values().next().value || null;

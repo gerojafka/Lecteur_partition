@@ -1,0 +1,13 @@
+CORRECTIF MIDI POUR iPAD — LECTURE_PARTITIONS
+
+Contenu :
+- index.html : version corrigée de la page d'accueil
+- lecture-notes_kimi_casio.html : copie corrigée de la même page
+
+Installation :
+1. Faites une copie de sauvegarde de vos deux fichiers HTML actuels.
+2. Décompressez cette archive dans le dossier racine du projet GitHub, celui qui contient actuellement index.html.
+3. Acceptez le remplacement des fichiers.
+4. Envoyez ensuite ces deux fichiers modifiés sur GitHub et rechargez la page sur l'iPad.
+
+Le correctif modifie uniquement la gestion MIDI intégrée dans les pages HTML. Il ne remplace pas les autres fichiers du projet.
