@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-<title>Apprendre à lire les notes · v2026.10.17.12</title>
+<title>Apprendre à lire les notes · v2026.10.23.13</title>
 <script>try{document.documentElement.dataset.theme=localStorage.getItem("lecture-notes-theme")==="night"?"night":"day"}catch(error){document.documentElement.dataset.theme="day"}</script>
 <style>
   :root {
@@ -2391,7 +2391,7 @@ body.partition-score-layout:not(.partition-video-mode):not(.partition-video-expa
 </head>
 <body>
   <main class="wrap">
-    <span class="build-version" title="Version de l’application">v2026.10.17.12</span>
+    <span class="build-version" title="Version de l’application">v2026.10.23.13</span>
     <header class="app-titlebar">
       <button type="button" class="btn-sm icon-only titlebar-back" id="homeMenuBtn" title="Retour au menu" aria-label="Retour au menu" hidden>⏎</button>
       <button type="button" class="theme-toggle app-theme-toggle" id="appThemeToggle" aria-label="Activer le mode nuit" title="Activer le mode nuit">☾</button>
@@ -3554,6 +3554,7 @@ globalThis.LectureAdlMidiFactory=createADLMIDI;
     advanceTimer: null,
     midiAccess: null,
     midiInput: null,
+    midiInputs: new Set(),
     midiNotesOn: new Set(),
     voiceRecognition: null,
     voiceStream: null,
@@ -3827,9 +3828,14 @@ globalThis.LectureAdlMidiFactory=createADLMIDI;
       state.midiAccess = access;
       state.midiAccess.onstatechange = () => {
         clearTimeout(midiDeviceRefreshTimer);
-        midiDeviceRefreshTimer = setTimeout(renderMidiDevices, 200);
+        midiDeviceRefreshTimer = setTimeout(renderMidiDevices, 120);
       };
       renderMidiDevices();
+      // Sur iPad, le port Casio peut apparaître après la résolution de
+      // requestMIDIAccess. On le recherche encore quelques secondes.
+      [250, 800, 1800, 3600, 7000].forEach(delay => setTimeout(() => {
+        if (state.midiAccess === access) renderMidiDevices();
+      }, delay));
       return access;
     } catch (err) {
       midiAccessRequest = null;
@@ -3841,34 +3847,55 @@ globalThis.LectureAdlMidiFactory=createADLMIDI;
     }
   }
 
+  function availableMidiInputs() {
+    if (!state.midiAccess) return [];
+    return Array.from(state.midiAccess.inputs.values())
+      .filter(input => input && input.state !== "disconnected");
+  }
+
+  async function connectMidiInput(input) {
+    if (!input) return;
+    if (!state.midiInputs) state.midiInputs = new Set();
+    if (state.midiInputs.has(input)) return;
+    state.midiInputs.add(input);
+    // Certaines implémentations Web MIDI sur iPad ne transmettent les notes
+    // qu'après l'ouverture explicite du port.
+    try {
+      if (typeof input.open === "function") await input.open();
+    } catch (error) {
+      // Le gestionnaire d'événements reste utile avec les ports déjà ouverts.
+    }
+    input.onmidimessage = onMidiMessage;
+    state.midiInput = state.midiInput || input;
+    updateMidiDot();
+  }
+
   function renderMidiDevices() {
     if (!state.midiAccess) return;
     midiDevicesEl.innerHTML = "";
-    const inputs = Array.from(state.midiAccess.inputs.values());
-    const hasAny = inputs.length > 0;
-
-    if (!hasAny) {
+    const inputs = availableMidiInputs();
+    if (!inputs.length) {
+      disconnectMidiInput();
       midiLabelEl.textContent = "MIDI";
       midiStatusEl.className = "midi-status";
       midiStatusEl.title = t("midiNoDevice");
       return;
     }
 
-    if (inputs.length === 1 && !state.midiInput) {
-      connectMidiInput(inputs[0]);
-    }
+    // Un Casio peut exposer plusieurs ports sur iPad. Tous les ports actifs
+    // sont écoutés, comme dans le lecteur MusicXML autonome.
+    inputs.forEach(input => { void connectMidiInput(input); });
 
     inputs.forEach((input) => {
       const btn = document.createElement("button");
       btn.type = "button";
-      btn.className = "midi-device-btn" + (state.midiInput === input ? " on" : "");
+      btn.className = "midi-device-btn" + (state.midiInputs?.has(input) ? " on" : "");
       btn.textContent = input.name || "MIDI";
+      btn.title = input.name || "MIDI";
       btn.addEventListener("click", () => {
-        if (state.midiInput === input) {
-          disconnectMidiInput();
-        } else {
-          connectMidiInput(input);
-        }
+        if (state.midiInputs?.has(input)) disconnectMidiInput(input);
+        else void connectMidiInput(input);
+        renderMidiDevices();
       });
       midiDevicesEl.appendChild(btn);
     });
@@ -3876,18 +3903,13 @@ globalThis.LectureAdlMidiFactory=createADLMIDI;
     updateMidiDot();
   }
 
-  function connectMidiInput(input) {
-    disconnectMidiInput();
-    state.midiInput = input;
-    input.onmidimessage = onMidiMessage;
-    updateMidiDot();
-  }
-
-  function disconnectMidiInput() {
-    if (state.midiInput) {
-      state.midiInput.onmidimessage = null;
-      state.midiInput = null;
-    }
+  function disconnectMidiInput(input = null) {
+    const inputs = input ? [input] : Array.from(state.midiInputs || []);
+    inputs.forEach(port => {
+      if (port) port.onmidimessage = null;
+      state.midiInputs?.delete(port);
+    });
+    state.midiInput = state.midiInputs?.values().next().value || null;
     state.midiNotesOn.clear();
     clearMidiKeyMarks();
     updateMidiDot();
@@ -3895,9 +3917,10 @@ globalThis.LectureAdlMidiFactory=createADLMIDI;
 
   function updateMidiDot() {
     midiLabelEl.textContent = "MIDI";
-    if (state.midiInput) {
+    const inputs = Array.from(state.midiInputs || []);
+    if (inputs.length) {
       midiStatusEl.className = "midi-status connected";
-      midiStatusEl.title = state.midiInput.name || t("midiConnected");
+      midiStatusEl.title = inputs.map(input => input.name || "MIDI").join(" · ") || t("midiConnected");
     } else {
       midiStatusEl.className = "midi-status";
       midiStatusEl.title = t("midiConnect");
@@ -9329,7 +9352,7 @@ globalThis.LectureAdlMidiFactory=createADLMIDI;
   async function ensureMusicXmlRenderer() {
     if (musicXmlRenderer) return musicXmlRenderer;
     if (!musicXmlRendererPromise) {
-      musicXmlRendererPromise = import("./musicxml-score.mjs?v=20261017.12").then(module => {
+      musicXmlRendererPromise = import("./musicxml-score.mjs?v=20261023.13").then(module => {
         musicXmlRenderer = new module.MusicXmlScoreRenderer({
           host: musicXmlScoreEl,
           systemsHost: musicXmlSystemsEl,

@@ -29,7 +29,7 @@ $mimeTypes = @{
 
 try {
   $listener.Start()
-  $url = "http://localhost:$Port/lecture-notes_kimi_casio.html?v=20261017.12"
+  $url = "http://localhost:$Port/lecture-notes_kimi_casio.html?v=20261023.13"
   Write-Output "Lecture Notes est disponible sur $url"
   Write-Output 'Laissez cette fenêtre ouverte pendant l’utilisation. Fermez-la avec Ctrl+C.'
   if (-not $NoBrowser) { Start-Process $url }
