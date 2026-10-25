@@ -1,0 +1,8 @@
+Verovio 6.3.0
+Copyright (c) the Verovio authors.
+License: GNU Lesser General Public License, version 3 or later.
+
+The browser engraving engine is distributed without modification in assets/.
+License texts are included as assets/COPYING and assets/COPYING.LESSER.
+Project: https://github.com/rism-digital/verovio/tree/version-6.3.0
+

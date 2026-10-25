@@ -1,0 +1,180 @@
+{
+  "version": 1,
+  "pieces": [
+    {
+      "id": "m-thode-rose-page-6-et-7-01",
+      "title": "Méthode Rose page 6 et 7_01",
+      "midi": "pieces/m-thode-rose-page-6-et-7-01/Méthode Rose page 6 et 7_01.mid",
+      "video": "pieces/m-thode-rose-page-6-et-7-01/Méthode Rose page 6 et 7_01.mp4",
+      "score": "pieces/m-thode-rose-page-6-et-7-01/Méthode Rose page 6 et 7_01.musicxml"
+    },
+    {
+      "id": "m-thode-rose-page-6-et-7-02",
+      "title": "Méthode Rose page 6 et 7_02",
+      "midi": "pieces/m-thode-rose-page-6-et-7-02/Méthode Rose page 6 et 7_02.mid",
+      "video": "pieces/m-thode-rose-page-6-et-7-02/Méthode Rose page 6 et 7_02.mp4",
+      "score": "pieces/m-thode-rose-page-6-et-7-02/Méthode Rose page 6 et 7_02.musicxml"
+    },
+    {
+      "id": "m-thode-rose-page-6-et-7-03",
+      "title": "Méthode Rose page 6 et 7_03",
+      "midi": "pieces/m-thode-rose-page-6-et-7-03/Méthode Rose page 6 et 7_03.mid",
+      "video": "pieces/m-thode-rose-page-6-et-7-03/Méthode Rose page 6 et 7_03.mp4",
+      "score": "pieces/m-thode-rose-page-6-et-7-03/Méthode Rose page 6 et 7_03.musicxml"
+    },
+    {
+      "id": "m-thode-rose-page-8-01",
+      "title": "Méthode Rose page 8_01",
+      "midi": "pieces/m-thode-rose-page-8-01/Méthode Rose page 8_01.mid",
+      "video": "pieces/m-thode-rose-page-8-01/Méthode Rose page 8_01.mp4",
+      "score": "pieces/m-thode-rose-page-8-01/Méthode Rose page 8_01.musicxml"
+    },
+    {
+      "id": "m-thode-rose-page-8-02",
+      "title": "Méthode Rose page 8_02",
+      "midi": "pieces/m-thode-rose-page-8-02/Méthode Rose page 8_02.mid",
+      "video": "pieces/m-thode-rose-page-8-02/Méthode Rose page 8_02.mp4",
+      "score": "pieces/m-thode-rose-page-8-02/Méthode Rose page 8_02.musicxml"
+    },
+    {
+      "id": "m-thode-rose-page-8-03",
+      "title": "Méthode Rose page 8_03",
+      "midi": "pieces/m-thode-rose-page-8-03/Méthode Rose page 8_03.mid",
+      "video": "pieces/m-thode-rose-page-8-03/Méthode Rose page 8_03.mp4",
+      "score": "pieces/m-thode-rose-page-8-03/Méthode Rose page 8_03.musicxml"
+    },
+    {
+      "id": "m-thode-rose-page-8-04",
+      "title": "Méthode Rose page 8_04",
+      "midi": "pieces/m-thode-rose-page-8-04/Méthode Rose page 8_04.mid",
+      "video": "pieces/m-thode-rose-page-8-04/Méthode Rose page 8_04.mp4",
+      "score": "pieces/m-thode-rose-page-8-04/Méthode Rose page 8_04.musicxml"
+    },
+    {
+      "id": "m-thode-rose-page-8-05",
+      "title": "Méthode Rose page 8_05",
+      "midi": "pieces/m-thode-rose-page-8-05/Méthode Rose page 8_05.mid",
+      "video": "pieces/m-thode-rose-page-8-05/Méthode Rose page 8_05.mp4",
+      "score": "pieces/m-thode-rose-page-8-05/Méthode Rose page 8_05.musicxml"
+    },
+    {
+      "id": "m-thode-rose-page-9-01",
+      "title": "Méthode Rose page 9_01",
+      "midi": "pieces/m-thode-rose-page-9-01/Méthode Rose page 9_01.mid",
+      "video": "pieces/m-thode-rose-page-9-01/Méthode Rose page 9_01.mp4",
+      "score": "pieces/m-thode-rose-page-9-01/Méthode Rose page 9_01.musicxml"
+    },
+    {
+      "id": "m-thode-rose-page-9-02",
+      "title": "Méthode Rose page 9_02",
+      "midi": "pieces/m-thode-rose-page-9-02/Méthode Rose page 9_02.mid",
+      "video": "pieces/m-thode-rose-page-9-02/Méthode Rose page 9_02.mp4",
+      "score": "pieces/m-thode-rose-page-9-02/Méthode Rose page 9_02.musicxml"
+    },
+    {
+      "id": "m-thode-rose-page-9-03",
+      "title": "Méthode Rose page 9_03",
+      "midi": "pieces/m-thode-rose-page-9-03/Méthode Rose page 9_03.mid",
+      "video": "pieces/m-thode-rose-page-9-03/Méthode Rose page 9_03.mp4",
+      "score": "pieces/m-thode-rose-page-9-03/Méthode Rose page 9_03.musicxml"
+    },
+    {
+      "id": "m-thode-rose-page-9-04",
+      "title": "Méthode Rose page 9_04",
+      "midi": "pieces/m-thode-rose-page-9-04/Méthode Rose page 9_04.mid",
+      "video": "pieces/m-thode-rose-page-9-04/Méthode Rose page 9_04.mp4",
+      "score": "pieces/m-thode-rose-page-9-04/Méthode Rose page 9_04.musicxml"
+    },
+    {
+      "id": "m-thode-rose-page-9-05",
+      "title": "Méthode Rose page 9_05",
+      "midi": "pieces/m-thode-rose-page-9-05/Méthode Rose page 9_05.mid",
+      "video": "pieces/m-thode-rose-page-9-05/Méthode Rose page 9_05.mp4",
+      "score": "pieces/m-thode-rose-page-9-05/Méthode Rose page 9_05.musicxml"
+    },
+    {
+      "id": "m-thode-rose-page-9-06",
+      "title": "Méthode Rose page 9_06",
+      "midi": "pieces/m-thode-rose-page-9-06/Méthode Rose page 9_06.mid",
+      "video": "pieces/m-thode-rose-page-9-06/Méthode Rose page 9_06.mp4",
+      "score": "pieces/m-thode-rose-page-9-06/Méthode Rose page 9_06.musicxml"
+    },
+    {
+      "id": "m-thode-rose-page-9-07",
+      "title": "Méthode Rose page 9_07",
+      "midi": "pieces/m-thode-rose-page-9-07/Méthode Rose page 9_07.mid",
+      "video": "pieces/m-thode-rose-page-9-07/Méthode Rose page 9_07.mp4",
+      "score": "pieces/m-thode-rose-page-9-07/Méthode Rose page 9_07.musicxml"
+    },
+    {
+      "id": "m-thode-rose-page-9-08",
+      "title": "Méthode Rose page 9_08",
+      "midi": "pieces/m-thode-rose-page-9-08/Méthode Rose page 9_08.mid",
+      "video": "pieces/m-thode-rose-page-9-08/Méthode Rose page 9_08.mp4",
+      "score": "pieces/m-thode-rose-page-9-08/Méthode Rose page 9_08.musicxml"
+    },
+    {
+      "id": "m-thode-rose-page-9-09",
+      "title": "Méthode Rose page 9_09",
+      "midi": "pieces/m-thode-rose-page-9-09/Méthode Rose page 9_09.mid",
+      "video": "pieces/m-thode-rose-page-9-09/Méthode Rose page 9_09.mp4",
+      "score": "pieces/m-thode-rose-page-9-09/Méthode Rose page 9_09.musicxml"
+    },
+    {
+      "id": "m-thode-rose-page-10-position-de-sol-01",
+      "title": "Méthode Rose page 10_ Position de Sol_01",
+      "midi": "pieces/m-thode-rose-page-10-position-de-sol-01/Méthode Rose page 10_ Position de Sol_01.mid",
+      "video": "pieces/m-thode-rose-page-10-position-de-sol-01/Méthode Rose page 10_ Position de Sol_01.mp4",
+      "score": "pieces/m-thode-rose-page-10-position-de-sol-01/Méthode Rose page 10_ Position de Sol_01.musicxml"
+    },
+    {
+      "id": "m-thode-rose-page-10-position-de-sol-02",
+      "title": "Méthode Rose page 10_ Position de Sol_02",
+      "midi": "pieces/m-thode-rose-page-10-position-de-sol-02/Méthode Rose page 10_ Position de Sol_02.mid",
+      "video": "pieces/m-thode-rose-page-10-position-de-sol-02/Méthode Rose page 10_ Position de Sol_02.mp4",
+      "score": "pieces/m-thode-rose-page-10-position-de-sol-02/Méthode Rose page 10_ Position de Sol_02.musicxml"
+    },
+    {
+      "id": "m-thode-rose-page-10-position-de-sol-03",
+      "title": "Méthode Rose page 10_ Position de Sol_03",
+      "midi": "pieces/m-thode-rose-page-10-position-de-sol-03/Méthode Rose page 10_ Position de Sol_03.mid",
+      "video": "pieces/m-thode-rose-page-10-position-de-sol-03/Méthode Rose page 10_ Position de Sol_03.mp4",
+      "score": "pieces/m-thode-rose-page-10-position-de-sol-03/Méthode Rose page 10_ Position de Sol_03.musicxml"
+    },
+    {
+      "id": "m-thode-rose-page-10-position-de-sol-04",
+      "title": "Méthode Rose page 10_ Position de Sol_04",
+      "midi": "pieces/m-thode-rose-page-10-position-de-sol-04/Méthode Rose page 10_ Position de Sol_04.mid",
+      "video": "pieces/m-thode-rose-page-10-position-de-sol-04/Méthode Rose page 10_ Position de Sol_04.mp4",
+      "score": "pieces/m-thode-rose-page-10-position-de-sol-04/Méthode Rose page 10_ Position de Sol_04.musicxml"
+    },
+    {
+      "id": "m-thode-rose-page-10-position-de-sol-05",
+      "title": "Méthode Rose page 10_ Position de Sol_05",
+      "midi": "pieces/m-thode-rose-page-10-position-de-sol-05/Méthode Rose page 10_ Position de Sol_05.mid",
+      "video": "pieces/m-thode-rose-page-10-position-de-sol-05/Méthode Rose page 10_ Position de Sol_05.mp4",
+      "score": "pieces/m-thode-rose-page-10-position-de-sol-05/Méthode Rose page 10_ Position de Sol_05.musicxml"
+    },
+    {
+      "id": "m-thode-rose-page-10-position-de-sol-06",
+      "title": "Méthode Rose page 10_ Position de Sol_06",
+      "midi": "pieces/m-thode-rose-page-10-position-de-sol-06/Méthode Rose page 10_ Position de Sol_06.mid",
+      "video": "pieces/m-thode-rose-page-10-position-de-sol-06/Méthode Rose page 10_ Position de Sol_06.mp4",
+      "score": "pieces/m-thode-rose-page-10-position-de-sol-06/Méthode Rose page 10_ Position de Sol_06.musicxml"
+    },
+    {
+      "id": "m-thode-rose-page-10-position-de-sol-07",
+      "title": "Méthode Rose page 10_ Position de Sol_07",
+      "midi": "pieces/m-thode-rose-page-10-position-de-sol-07/Méthode Rose page 10_ Position de Sol_07.mid",
+      "video": "pieces/m-thode-rose-page-10-position-de-sol-07/Méthode Rose page 10_ Position de Sol_07.mp4",
+      "score": "pieces/m-thode-rose-page-10-position-de-sol-07/Méthode Rose page 10_ Position de Sol_07.musicxml"
+    },
+    {
+      "id": "m-thode-rose-page-10-position-de-sol-08",
+      "title": "Méthode Rose page 10_ Position de Sol_08",
+      "midi": "pieces/m-thode-rose-page-10-position-de-sol-08/Méthode Rose page 10_ Position de Sol_08.mid",
+      "video": "pieces/m-thode-rose-page-10-position-de-sol-08/Méthode Rose page 10_ Position de Sol_08.mp4",
+      "score": "pieces/m-thode-rose-page-10-position-de-sol-08/Méthode Rose page 10_ Position de Sol_08.musicxml"
+    }
+  ]
+}
